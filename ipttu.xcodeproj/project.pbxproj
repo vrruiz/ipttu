@@ -18,6 +18,19 @@
 		F726EEBF122F2AAF00F8FE0D /* icon-info.png in Resources */ = {isa = PBXBuildFile; fileRef = F726EEBE122F2AAF00F8FE0D /* icon-info.png */; };
 		F726F3621232838300F8FE0D /* NSDataExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = F726F3611232838300F8FE0D /* NSDataExtras.m */; };
 		F73332B012526DFA00B7B92C /* FeaturedNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = F73332AF12526DFA00B7B92C /* FeaturedNavController.m */; };
+		F733358C1255D6C200B7B92C /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F733357A1255D6C200B7B92C /* NSCharacterSet_Extensions.m */; };
+		F733358D1255D6C200B7B92C /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F733357C1255D6C200B7B92C /* CDataScanner_Extensions.m */; };
+		F733358E1255D6C200B7B92C /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F733357E1255D6C200B7B92C /* NSDictionary_JSONExtensions.m */; };
+		F733358F1255D6C200B7B92C /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = F73335811255D6C200B7B92C /* CJSONScanner.m */; };
+		F73335901255D6C200B7B92C /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = F73335831255D6C200B7B92C /* CJSONSerializer.m */; };
+		F73335911255D6C200B7B92C /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = F73335851255D6C200B7B92C /* CJSONDeserializer.m */; };
+		F73335921255D6C200B7B92C /* CJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = F73335871255D6C200B7B92C /* CJSONDataSerializer.m */; };
+		F73335931255D6C200B7B92C /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = F73335891255D6C200B7B92C /* CSerializedJSONData.m */; };
+		F73335941255D6C200B7B92C /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = F733358B1255D6C200B7B92C /* CDataScanner.m */; };
+		F73335AC1255D72400B7B92C /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F73335AA1255D72400B7B92C /* SearchViewController.m */; };
+		F73335AD1255D72400B7B92C /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F73335AB1255D72400B7B92C /* SearchViewController.xib */; };
+		F73335F41255E90F00B7B92C /* NSStringExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = F73335F31255E90F00B7B92C /* NSStringExtras.m */; };
+		F73336041255EA1E00B7B92C /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = F73336031255EA1E00B7B92C /* GTMNSString+HTML.m */; };
 		F733CD8A12350D5600B3E367 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F733CD8912350D5600B3E367 /* SystemConfiguration.framework */; };
 		F733CE8712354DF300B3E367 /* icon-podcast.png in Resources */ = {isa = PBXBuildFile; fileRef = F733CE8612354DF300B3E367 /* icon-podcast.png */; };
 		F733CEAF12355A9000B3E367 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F733CEAE12355A9000B3E367 /* MediaPlayer.framework */; };
@@ -58,6 +71,32 @@
 		F726F3611232838300F8FE0D /* NSDataExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataExtras.m; sourceTree = "<group>"; };
 		F73332AE12526DFA00B7B92C /* FeaturedNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedNavController.h; sourceTree = "<group>"; };
 		F73332AF12526DFA00B7B92C /* FeaturedNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedNavController.m; sourceTree = "<group>"; };
+		F73335791255D6C200B7B92C /* NSCharacterSet_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCharacterSet_Extensions.h; sourceTree = "<group>"; };
+		F733357A1255D6C200B7B92C /* NSCharacterSet_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSCharacterSet_Extensions.m; sourceTree = "<group>"; };
+		F733357B1255D6C200B7B92C /* CDataScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner_Extensions.h; sourceTree = "<group>"; };
+		F733357C1255D6C200B7B92C /* CDataScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner_Extensions.m; sourceTree = "<group>"; };
+		F733357D1255D6C200B7B92C /* NSDictionary_JSONExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionary_JSONExtensions.h; sourceTree = "<group>"; };
+		F733357E1255D6C200B7B92C /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionary_JSONExtensions.m; sourceTree = "<group>"; };
+		F73335801255D6C200B7B92C /* CJSONScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONScanner.h; sourceTree = "<group>"; };
+		F73335811255D6C200B7B92C /* CJSONScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONScanner.m; sourceTree = "<group>"; };
+		F73335821255D6C200B7B92C /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
+		F73335831255D6C200B7B92C /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
+		F73335841255D6C200B7B92C /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDeserializer.h; sourceTree = "<group>"; };
+		F73335851255D6C200B7B92C /* CJSONDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONDeserializer.m; sourceTree = "<group>"; };
+		F73335861255D6C200B7B92C /* CJSONDataSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDataSerializer.h; sourceTree = "<group>"; };
+		F73335871255D6C200B7B92C /* CJSONDataSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONDataSerializer.m; sourceTree = "<group>"; };
+		F73335881255D6C200B7B92C /* CSerializedJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSerializedJSONData.h; sourceTree = "<group>"; };
+		F73335891255D6C200B7B92C /* CSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSerializedJSONData.m; sourceTree = "<group>"; };
+		F733358A1255D6C200B7B92C /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
+		F733358B1255D6C200B7B92C /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner.m; sourceTree = "<group>"; };
+		F73335A91255D72400B7B92C /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		F73335AA1255D72400B7B92C /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		F73335AB1255D72400B7B92C /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchViewController.xib; path = Classes/SearchViewController.xib; sourceTree = "<group>"; };
+		F73335F21255E90F00B7B92C /* NSStringExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringExtras.h; sourceTree = "<group>"; };
+		F73335F31255E90F00B7B92C /* NSStringExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringExtras.m; sourceTree = "<group>"; };
+		F73336021255EA1E00B7B92C /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		F73336031255EA1E00B7B92C /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		F73336191255EA9300B7B92C /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		F733CD8912350D5600B3E367 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F733CE8612354DF300B3E367 /* icon-podcast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-podcast.png"; sourceTree = "<group>"; };
 		F733CEAE12355A9000B3E367 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -105,14 +144,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F73335B41255DC5E00B7B92C /* Extras */,
+				F73335771255D6C200B7B92C /* JSON */,
 				F79303FC122D58410000CDEC /* PTTUFeed.h */,
 				F79303FD122D58410000CDEC /* PTTUFeed.m */,
-				F7930456122D5E970000CDEC /* UIImageExtras.h */,
-				F7930457122D5E970000CDEC /* UIImageExtras.m */,
-				F726F3601232838300F8FE0D /* NSDataExtras.h */,
-				F726F3611232838300F8FE0D /* NSDataExtras.m */,
-				F79303F9122D58350000CDEC /* EntitiesConverter.h */,
-				F79303FA122D58350000CDEC /* EntitiesConverter.m */,
 				1D3623240D0F684500981E51 /* ipttuAppDelegate.h */,
 				1D3623250D0F684500981E51 /* ipttuAppDelegate.m */,
 				F73332AE12526DFA00B7B92C /* FeaturedNavController.h */,
@@ -123,6 +158,8 @@
 				F793046E122D64430000CDEC /* WebViewController.m */,
 				F793056A122E6B970000CDEC /* PostViewController.h */,
 				F793056B122E6B970000CDEC /* PostViewController.m */,
+				F73335A91255D72400B7B92C /* SearchViewController.h */,
+				F73335AA1255D72400B7B92C /* SearchViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -176,6 +213,7 @@
 				F7930428122D5A420000CDEC /* tvCell.xib */,
 				F793046F122D64430000CDEC /* WebViewController.xib */,
 				F793056C122E6B970000CDEC /* PostViewController.xib */,
+				F73335AB1255D72400B7B92C /* SearchViewController.xib */,
 				8D1107310486CEB800E47090 /* ipttu-Info.plist */,
 			);
 			name = Resources;
@@ -190,6 +228,66 @@
 				F733CD8912350D5600B3E367 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F73335771255D6C200B7B92C /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				F73335781255D6C200B7B92C /* Extensions */,
+				F733357F1255D6C200B7B92C /* JSON */,
+				F733358A1255D6C200B7B92C /* CDataScanner.h */,
+				F733358B1255D6C200B7B92C /* CDataScanner.m */,
+			);
+			name = JSON;
+			path = Source;
+			sourceTree = "<group>";
+		};
+		F73335781255D6C200B7B92C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F73335791255D6C200B7B92C /* NSCharacterSet_Extensions.h */,
+				F733357A1255D6C200B7B92C /* NSCharacterSet_Extensions.m */,
+				F733357B1255D6C200B7B92C /* CDataScanner_Extensions.h */,
+				F733357C1255D6C200B7B92C /* CDataScanner_Extensions.m */,
+				F733357D1255D6C200B7B92C /* NSDictionary_JSONExtensions.h */,
+				F733357E1255D6C200B7B92C /* NSDictionary_JSONExtensions.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F733357F1255D6C200B7B92C /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				F73335801255D6C200B7B92C /* CJSONScanner.h */,
+				F73335811255D6C200B7B92C /* CJSONScanner.m */,
+				F73335821255D6C200B7B92C /* CJSONSerializer.h */,
+				F73335831255D6C200B7B92C /* CJSONSerializer.m */,
+				F73335841255D6C200B7B92C /* CJSONDeserializer.h */,
+				F73335851255D6C200B7B92C /* CJSONDeserializer.m */,
+				F73335861255D6C200B7B92C /* CJSONDataSerializer.h */,
+				F73335871255D6C200B7B92C /* CJSONDataSerializer.m */,
+				F73335881255D6C200B7B92C /* CSerializedJSONData.h */,
+				F73335891255D6C200B7B92C /* CSerializedJSONData.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		F73335B41255DC5E00B7B92C /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				F7930456122D5E970000CDEC /* UIImageExtras.h */,
+				F7930457122D5E970000CDEC /* UIImageExtras.m */,
+				F726F3601232838300F8FE0D /* NSDataExtras.h */,
+				F726F3611232838300F8FE0D /* NSDataExtras.m */,
+				F73336191255EA9300B7B92C /* GTMDefines.h */,
+				F73336021255EA1E00B7B92C /* GTMNSString+HTML.h */,
+				F73336031255EA1E00B7B92C /* GTMNSString+HTML.m */,
+				F73335F21255E90F00B7B92C /* NSStringExtras.h */,
+				F73335F31255E90F00B7B92C /* NSStringExtras.m */,
+				F79303F9122D58350000CDEC /* EntitiesConverter.h */,
+				F79303FA122D58350000CDEC /* EntitiesConverter.m */,
+			);
+			name = Extras;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +351,7 @@
 				F733CF5A1235A1AE00B3E367 /* icon-video.png in Resources */,
 				F733CF601235A47E00B3E367 /* icon-audio.png in Resources */,
 				F733CFBA123652DD00B3E367 /* icon-news.png in Resources */,
+				F73335AD1255D72400B7B92C /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +372,18 @@
 				F793056D122E6B970000CDEC /* PostViewController.m in Sources */,
 				F726F3621232838300F8FE0D /* NSDataExtras.m in Sources */,
 				F73332B012526DFA00B7B92C /* FeaturedNavController.m in Sources */,
+				F733358C1255D6C200B7B92C /* NSCharacterSet_Extensions.m in Sources */,
+				F733358D1255D6C200B7B92C /* CDataScanner_Extensions.m in Sources */,
+				F733358E1255D6C200B7B92C /* NSDictionary_JSONExtensions.m in Sources */,
+				F733358F1255D6C200B7B92C /* CJSONScanner.m in Sources */,
+				F73335901255D6C200B7B92C /* CJSONSerializer.m in Sources */,
+				F73335911255D6C200B7B92C /* CJSONDeserializer.m in Sources */,
+				F73335921255D6C200B7B92C /* CJSONDataSerializer.m in Sources */,
+				F73335931255D6C200B7B92C /* CSerializedJSONData.m in Sources */,
+				F73335941255D6C200B7B92C /* CDataScanner.m in Sources */,
+				F73335AC1255D72400B7B92C /* SearchViewController.m in Sources */,
+				F73335F41255E90F00B7B92C /* NSStringExtras.m in Sources */,
+				F73336041255EA1E00B7B92C /* GTMNSString+HTML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
