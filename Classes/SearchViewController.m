@@ -23,12 +23,13 @@
 */
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
- - (void)viewDidLoad {
- items = [[NSMutableArray alloc] init];
- lastSearch = [[NSMutableString alloc] init];
+- (void)viewDidLoad {
+	items = [[NSMutableArray alloc] init];
+	lastSearch = [[NSMutableString alloc] init];
+	jsonData = [[NSMutableData alloc] init];
  
- [super viewDidLoad];
- }
+	[super viewDidLoad];
+}
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -55,6 +56,8 @@
 - (void)dealloc {
 	[lastSearch release];
 	[items release];
+	[connection release];
+	[request release];
     [super dealloc];
 }
 
@@ -100,45 +103,23 @@
 # pragma mark -
 # pragma mark - UISearchDisplayController delegate methods
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-	NSLog(@"%@", searchString);
-	return YES;
+	NSLog(@"shouldReloadTableForSearchString: %@", searchString);
+	return NO;
 }
 
 # pragma mark -
-# pragma mark - UISearchDisplayController SearchBar delegate methods
+# pragma mark - NSURLConnection delegate methods
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-	NSLog(@"textDidChange");
-	
-	// Avoid calls to Google AJAX API. 1st pass
-	if ([lastSearch isEqualToString:searchText]) return; // Already done
-
-	// Reset items
-	if ([items count] > 0) [items removeAllObjects];
-
-	// Avoid calls to Google AJAX API. 2nd pass
-	if ([searchText isEqualToString:@""]) return; // No search needed
-	if ([searchText length] < 2) return; // No search needed
-	
-	// Compose URL
-	NSMutableString *urlString = [[NSMutableString alloc] initWithString:@"http://ajax.googleapis.com/ajax/services/search/web?v=1.0&cx=016374242383990648147%3A8xa_ayqhnne&rsz=large&q="];
-	[urlString appendString:[searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-	NSURL *url = [NSURL URLWithString:urlString];
-	[urlString release];
-	
-	// Download data
-	// TODO: Asynchronous downloading
-	NSData *jsonData = [NSData dataWithContentsOfURL:url];
-	if (jsonData == nil) return;
-	
+- (void)parseJson:(NSData *)data {
 	// Parse JSON
-	NSDictionary *result = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:nil];
+	NSDictionary *result = [[CJSONDeserializer deserializer] deserializeAsDictionary:data error:nil];
 	if (result == nil) return;
 	
 	// Check response
-	NSString *status = [result objectForKey:@"responseStatus"];
-	NSLog(@"Status: %@", status);
-	// if ([status isEqualToString:@"200"]) return; // Bad request
+	NSNumber *status = [result objectForKey:@"responseStatus"];
+	NSLog(@"Status: %d", [status intValue]);
+	if (![status isEqualToNumber:[NSNumber numberWithInt:200]]) return; // Bad request
+	// TODO: Alert of network problems
 	
 	// Parse query
 	NSDictionary *response = [result objectForKey:@"responseData"];
@@ -161,13 +142,66 @@
 		[items addObject:newItem];
 		[newItem release];
 	}
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+	// Reset data
+	[jsonData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+	// Append data
+	[jsonData appendData:data];
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)conn {
+	NSLog(@"DidFinishLoading");
+	[connection release];
+	connection = nil;
 	
+	// Parse downloaded data
+	[self parseJson:jsonData];
+	
+	// Refresh table view
+	[self.searchDisplayController.searchResultsTableView reloadData];
+}
+
+# pragma mark -
+# pragma mark - UISearchDisplayController SearchBar delegate methods
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+	NSLog(@"textDidChange");
+	
+	// Avoid calls to Google AJAX API. 1st pass
+	if ([lastSearch isEqualToString:searchText]) return; // Already done
+
+	// Reset items
+	if ([items count] > 0) [items removeAllObjects];
+
+	// Avoid calls to Google AJAX API. 2nd pass
+	if ([searchText isEqualToString:@""]) return; // No search needed
+	if ([searchText length] < 2) return; // No search needed
+
 	[lastSearch setString:searchText];
-}
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-	NSLog(@"Search");
+	// Compose URL
+	NSMutableString *urlString = [[NSMutableString alloc] initWithString:@"http://ajax.googleapis.com/ajax/services/search/web?v=1.0&cx=016374242383990648147%3A8xa_ayqhnne&rsz=large&q="];
+	[urlString appendString:[searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	NSURL *url = [NSURL URLWithString:urlString];
+	[urlString release];
+	
+	// Download data: Asynchronous downloading
+	if (connection) {
+		// Stop previous request
+		[connection cancel];
+		[connection release];
+	}
+	
+	// Start new request
+	request = [[NSURLRequest alloc] initWithURL:url];
+	connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+	[connection start];
+	[request release];
 }
-
 
 @end

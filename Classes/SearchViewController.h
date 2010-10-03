@@ -12,6 +12,9 @@
 @interface SearchViewController : UIViewController <UITableViewDelegate, UISearchBarDelegate> {
 	NSMutableArray *items;
 	NSMutableString *lastSearch;
+	NSURLRequest *request;
+	NSURLConnection *connection;
+	NSMutableData *jsonData;
 }
 
 @end

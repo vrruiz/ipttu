@@ -171,7 +171,7 @@
 	NSUInteger n;
 	for (n = 0; n < [posts count]; n++) {
 		NSDictionary *item = [posts objectAtIndex:n];
-		NSMutableDictionary *post = [[[NSMutableDictionary alloc] initWithDictionary:[item copy]] autorelease];
+		NSMutableDictionary *post = [[NSMutableDictionary alloc] initWithDictionary:[item copy]];
 		NSString *type = [item objectForKey:@"enclosureType"];
 		NSLog(@"enclosure type: %@", type);
 		NSString *url = [item objectForKey:@"enclosure"];
@@ -186,6 +186,7 @@
 		[posts replaceObjectAtIndex:n withObject:[post copy]];
 		// Update table view to show image
 		[self performSelectorOnMainThread:@selector(backgroundImageFinished:) withObject:[NSNumber numberWithInt:n] waitUntilDone:YES];
+		[post release];
 	}
 
 	[self performSelectorOnMainThread:@selector(backgroundFeedFinished) withObject:nil waitUntilDone:YES];
