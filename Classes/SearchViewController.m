@@ -7,6 +7,7 @@
 //
 
 #import "SearchViewController.h"
+#import "WebViewController.h"
 #import "CJSONDeserializer.h"
 #import "NSStringExtras.h"
 
@@ -94,10 +95,13 @@
 	// Check whether item is correctly selected
 	if ([items count] < 1 || indexPath.row >= [items count]) return;
 	
-	// Open browser
+	// Open internal web browser
 	NSString *link = [[items objectAtIndex:indexPath.row] objectForKey:@"link"];
-	NSURL *url = [NSURL URLWithString:link];
-	[[UIApplication sharedApplication] openURL:url];
+	WebViewController *webViewController = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:link];
+	webViewController.hidesBottomBarWhenPushed = YES;
+	webViewController.title = @"Portal to the Universe";
+	[self.navigationController pushViewController:webViewController animated:YES];
+	[webViewController release];
 }
 
 # pragma mark -

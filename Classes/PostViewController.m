@@ -8,6 +8,7 @@
 
 #import "PostViewController.h"
 #import "UIImageExtras.h"
+#import "WebViewController.h"
 
 #import <SystemConfiguration/SCNetworkReachability.h>
 #import <MediaPlayer/MPMoviePlayerViewController.h>
@@ -66,7 +67,7 @@
 	} else {
 		// Link button
 		buttonLink = [[UIBarButtonItem alloc]
-					  initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+					  initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
 					  target:self
 					  action:@selector(openBrowser)];
 		self.navigationItem.rightBarButtonItem = buttonLink;
@@ -142,9 +143,10 @@
 		// Open link in Safari;
 		NSString *link = [item objectForKey:@"link"];
 		if (link) {
-			NSURL *url = [[NSURL alloc] initWithString:link];
-			[[UIApplication sharedApplication] openURL:url];
-			[url release];
+			// Open internal web browser
+			WebViewController *webViewController = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:link];
+			[self.navigationController pushViewController:webViewController animated:YES];
+			[webViewController release];
 		}
 	}
 }

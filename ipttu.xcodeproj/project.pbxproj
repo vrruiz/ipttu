@@ -51,6 +51,10 @@
 		F793056D122E6B970000CDEC /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F793056B122E6B970000CDEC /* PostViewController.m */; };
 		F793056E122E6B970000CDEC /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F793056C122E6B970000CDEC /* PostViewController.xib */; };
 		F79305B5122E79F40000CDEC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F79305B4122E79F40000CDEC /* Default.png */; };
+		F7D7FA571259560100D58A28 /* icon-back.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D7FA551259560100D58A28 /* icon-back.png */; };
+		F7D7FA581259560100D58A28 /* icon-forward.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D7FA561259560100D58A28 /* icon-forward.png */; };
+		F7D7FAE01259E95D00D58A28 /* SearchNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D7FADE1259E95D00D58A28 /* SearchNavController.m */; };
+		F7D7FAE11259E95D00D58A28 /* SearchNavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D7FADF1259E95D00D58A28 /* SearchNavController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +127,11 @@
 		F793056B122E6B970000CDEC /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		F793056C122E6B970000CDEC /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PostViewController.xib; path = Classes/PostViewController.xib; sourceTree = "<group>"; };
 		F79305B4122E79F40000CDEC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Classes/Default.png; sourceTree = "<group>"; };
+		F7D7FA551259560100D58A28 /* icon-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back.png"; sourceTree = "<group>"; };
+		F7D7FA561259560100D58A28 /* icon-forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-forward.png"; sourceTree = "<group>"; };
+		F7D7FADD1259E95D00D58A28 /* SearchNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchNavController.h; sourceTree = "<group>"; };
+		F7D7FADE1259E95D00D58A28 /* SearchNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchNavController.m; sourceTree = "<group>"; };
+		F7D7FADF1259E95D00D58A28 /* SearchNavController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchNavController.xib; path = Classes/SearchNavController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +167,8 @@
 				F793046E122D64430000CDEC /* WebViewController.m */,
 				F793056A122E6B970000CDEC /* PostViewController.h */,
 				F793056B122E6B970000CDEC /* PostViewController.m */,
+				F7D7FADD1259E95D00D58A28 /* SearchNavController.h */,
+				F7D7FADE1259E95D00D58A28 /* SearchNavController.m */,
 				F73335A91255D72400B7B92C /* SearchViewController.h */,
 				F73335AA1255D72400B7B92C /* SearchViewController.m */,
 			);
@@ -207,12 +218,15 @@
 				F733CFB9123652DD00B3E367 /* icon-news.png */,
 				F733CF5F1235A47E00B3E367 /* icon-audio.png */,
 				F733CF591235A1AE00B3E367 /* icon-video.png */,
+				F7D7FA551259560100D58A28 /* icon-back.png */,
+				F7D7FA561259560100D58A28 /* icon-forward.png */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				F79303A8122D3D370000CDEC /* FeaturedNavController.xib */,
 				F79303C1122D3E550000CDEC /* FeaturedTableViewController.xib */,
 				F7930428122D5A420000CDEC /* tvCell.xib */,
 				F793046F122D64430000CDEC /* WebViewController.xib */,
 				F793056C122E6B970000CDEC /* PostViewController.xib */,
+				F7D7FADF1259E95D00D58A28 /* SearchNavController.xib */,
 				F73335AB1255D72400B7B92C /* SearchViewController.xib */,
 				8D1107310486CEB800E47090 /* ipttu-Info.plist */,
 			);
@@ -352,6 +366,9 @@
 				F733CF601235A47E00B3E367 /* icon-audio.png in Resources */,
 				F733CFBA123652DD00B3E367 /* icon-news.png in Resources */,
 				F73335AD1255D72400B7B92C /* SearchViewController.xib in Resources */,
+				F7D7FA571259560100D58A28 /* icon-back.png in Resources */,
+				F7D7FA581259560100D58A28 /* icon-forward.png in Resources */,
+				F7D7FAE11259E95D00D58A28 /* SearchNavController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +401,7 @@
 				F73335AC1255D72400B7B92C /* SearchViewController.m in Sources */,
 				F73335F41255E90F00B7B92C /* NSStringExtras.m in Sources */,
 				F73336041255EA1E00B7B92C /* GTMNSString+HTML.m in Sources */,
+				F7D7FAE01259E95D00D58A28 /* SearchNavController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

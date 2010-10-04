@@ -9,14 +9,31 @@
 #import <UIKit/UIKit.h>
 
 
-@interface WebViewController : UIViewController {
-	IBOutlet UIWebView *webView;
-	NSString *url;
-
+@interface WebViewController : UIViewController <UIWebViewDelegate> {
+	UIWebView *webView;
+	UIBarButtonItem *buttonBack;
+	UIBarButtonItem *buttonForward;
+	UIBarButtonItem *buttonCancel;
+	UIBarButtonItem *buttonRefresh;
+	UIBarButtonItem *buttonAction;
+	UITextField *textAddress;
+	NSString *urlAddress;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil url:(NSString *)url;
-
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *buttonBack;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *buttonForward;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *buttonCancel;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *buttonRefresh;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *buttonAction;
+@property (nonatomic, retain) IBOutlet UITextField *textAddress;
+
+- (IBAction) webBack;
+- (IBAction) webForward;
+- (IBAction) webCancel;
+- (IBAction) webRefresh;
+- (IBAction) webOpenSafari;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil url:(NSString *)url;
 
 @end
