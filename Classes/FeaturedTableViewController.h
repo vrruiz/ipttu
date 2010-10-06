@@ -10,6 +10,7 @@
 
 @interface FeaturedTableViewController : UITableViewController {
 	NSMutableArray *posts;
+	NSMutableDictionary *images;
 	UITableViewCell *tvCell;
 	NSString *feed;
 	NSString *lastDate;

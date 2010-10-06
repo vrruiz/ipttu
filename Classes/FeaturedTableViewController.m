@@ -106,6 +106,7 @@
 		// Reload?
 		lastDate = [[NSString alloc] initWithString:[[stories objectAtIndex:0] objectForKey:@"date"]];
 		posts = [stories copy];
+		images = [[NSMutableDictionary alloc] init];
 	} else {
 		NSLog(@"Stories file count: nil");
 	}
@@ -152,7 +153,11 @@
 	}
 
 	// Update posts array
-	if (posts) [posts release];
+	if (posts) {
+		[posts release];
+		// Remove cached images
+		[images removeAllObjects];
+	}
 	posts = [[NSMutableArray alloc] initWithArray:pttuFeed.stories];
 	
 	// Update lastDate with the most recent story's date
@@ -204,7 +209,6 @@
 	NSIndexPath *index = [[NSIndexPath alloc] initWithIndexes:indexArr length:2];
 
 	// Reload the row at the index path
-	// Alternative: [self.tableView reloadData] -- but is slower
 	[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:index] withRowAnimation:UITableViewRowAnimationNone];
 
 	[index release];
@@ -321,36 +325,60 @@
         cell = tvCell;
         // self.tvCell = nil; // Comment this. Is Apple official doc wrong?
     }
-	
+
 	int storyIndex = [indexPath indexAtPosition:[indexPath length] - 1];
 	
 	// Image
 	UIImageView *imageView;
 	imageView = (UIImageView *)[cell viewWithTag:1];
-	UIImage *image = [[[UIImage alloc] initWithData:[[posts objectAtIndex: storyIndex] objectForKey: @"imageFile"]] autorelease];
-	if (image) imageView.image = [image imageByScalingAndCroppingForSize:imageView.frame.size];
+	
+	// Check whether it is cached
+	UIImage *imageCached = [images objectForKey:[NSNumber numberWithInt:storyIndex]];
+	if (imageCached == nil) {
+		// Resize and cache
+		UIImage *image = [[[UIImage alloc] initWithData:[[posts objectAtIndex:storyIndex] objectForKey:@"imageFile"]] autorelease];
+		if (image) {
+			// Resize
+			UIImage *imageResize = [image imageByScalingAndCroppingForSize:imageView.frame.size];
+			// Store in cache
+			[images setObject:imageResize forKey:[NSNumber numberWithInt:storyIndex]];
+			// Set
+			imageView.image = imageResize;
+		}
+	} else {
+		imageView.image = imageCached;
+	}
 	
 	// Audio/video podcast?
 	NSString *type = [[posts objectAtIndex:storyIndex] objectForKey:@"enclosureType"];
 	if (type && ([type hasPrefix:@"audio"] || [type hasPrefix:@"video"])) {
 		NSString *iconFile = [type hasPrefix:@"audio"] ? @"icon-audio.png" : @"icon-video.png";
 		imageView.contentMode = UIViewContentModeCenter;
-		imageView.image = [UIImage imageNamed:iconFile];
+
+		// Check cache image
+		UIImage *imageIcon = [images objectForKey:iconFile];
+		if (imageIcon) {
+			imageView.image = imageIcon;
+		} else {
+			// Store in cache
+			imageIcon = [UIImage imageNamed:iconFile];
+			[images setObject:imageIcon forKey:[NSNumber numberWithInt:storyIndex]];
+			// Set
+			imageView.image = imageIcon;
+		}
 	}
 	
 	// Title
     UILabel *label;
     label = (UILabel *)[cell viewWithTag:2];
-	label.text = [[posts objectAtIndex:storyIndex] objectForKey: @"title"];
+	label.text = [[posts objectAtIndex:storyIndex] objectForKey:@"title"];
 	
 	// Date
-    // label = (UILabel *)[cell viewWithTag:3];
-	// label.text = [[posts objectAtIndex:storyIndex] objectForKey: @"date"];
-	NSString *date = [[posts objectAtIndex:storyIndex] objectForKey: @"shortDate"];
+	NSString *date = [[posts objectAtIndex:storyIndex] objectForKey:@"shortDate"];
 	
 	// Description
     label = (UILabel *)[cell viewWithTag:4];
-	NSString *summary = [[posts objectAtIndex:storyIndex] objectForKey: @"summary"];
+	NSString *summary = [[posts objectAtIndex:storyIndex] objectForKey:@"summary"];
 	summary = [self removeHTML:summary];
 	label.text = [NSString stringWithFormat:@"%@ - %@", date, summary];
 	
@@ -446,8 +474,9 @@
 
 
 - (void)dealloc {
-	if (lastDate) [lastDate release];
-	if (posts) [posts release];
+	[lastDate release];
+	[posts release];
+	[images release];
 	[buttonActivity release];
 	[buttonRefresh release];
 	[navController release];

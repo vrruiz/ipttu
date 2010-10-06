@@ -140,10 +140,10 @@
 		[player release];
 		[url release];
 	} else {
-		// Open link in Safari;
+		// Open link in browser
 		NSString *link = [item objectForKey:@"link"];
 		if (link) {
-			// Open internal web browser
+			// Use internal web browser
 			WebViewController *webViewController = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:link];
 			[self.navigationController pushViewController:webViewController animated:YES];
 			[webViewController release];
