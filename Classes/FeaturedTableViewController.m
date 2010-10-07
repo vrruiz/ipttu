@@ -140,10 +140,21 @@
 	PTTUFeed *pttuFeed = [[PTTUFeed alloc] init];
 	[pttuFeed parse:feed];
 	
+	NSUInteger storiesCount = [pttuFeed.stories count];
+	
+	// Check for posts in feed
+	if ( storiesCount == 0 ) {
+		NSLog(@"No stories in feed: %@", feed);
+		[pttuFeed release];
+		[self performSelectorOnMainThread:@selector(backgroundFeedFinished) withObject:nil waitUntilDone:YES];
+		[pool release];
+		return;
+	}
+	
 	// Compare lastDate with most recent story date
 	// to check whether the table data needs reloading
 	NSLog(@"Last date %@ -- Feed last date: %@", lastDate, [[pttuFeed.stories objectAtIndex:0] objectForKey:@"date"]);
-	if (lastDate && [pttuFeed.stories count] > 0 && [[[pttuFeed.stories objectAtIndex:0] objectForKey:@"date"] isEqualToString:lastDate]) {
+	if (lastDate && storiesCount > 0 && [[[pttuFeed.stories objectAtIndex:0] objectForKey:@"date"] isEqualToString:lastDate]) {
 		// No need to update
 		NSLog(@"No need to update");
 		[pttuFeed release];
