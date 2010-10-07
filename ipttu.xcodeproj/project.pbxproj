@@ -13,6 +13,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		750C459E125E2AD800AC12AF /* detail_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 750C459D125E2AD800AC12AF /* detail_bg.png */; };
 		75E75495125CD4F60098B225 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E75494125CD4F60098B225 /* Default@2x.png */; };
 		75E754B1125CD7940098B225 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E754B0125CD7940098B225 /* Icon@2x.png */; };
 		F726EEB9122F251900F8FE0D /* icon-chat.png in Resources */ = {isa = PBXBuildFile; fileRef = F726EEB8122F251900F8FE0D /* icon-chat.png */; };
@@ -69,6 +70,7 @@
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* ipttu_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ipttu_Prefix.pch; sourceTree = "<group>"; };
+		750C459D125E2AD800AC12AF /* detail_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detail_bg.png; sourceTree = "<group>"; };
 		75E75494125CD4F60098B225 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		75E754B0125CD7940098B225 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* ipttu-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ipttu-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				750C459D125E2AD800AC12AF /* detail_bg.png */,
 				75E754B0125CD7940098B225 /* Icon@2x.png */,
 				75E75494125CD4F60098B225 /* Default@2x.png */,
 				F79305B4122E79F40000CDEC /* Default.png */,
@@ -384,6 +387,7 @@
 				F7D7FAE11259E95D00D58A28 /* SearchNavController.xib in Resources */,
 				75E75495125CD4F60098B225 /* Default@2x.png in Resources */,
 				75E754B1125CD7940098B225 /* Icon@2x.png in Resources */,
+				750C459E125E2AD800AC12AF /* detail_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

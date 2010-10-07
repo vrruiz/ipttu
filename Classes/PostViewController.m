@@ -54,7 +54,7 @@
 	labelTitle.text = [item objectForKey:@"title"];
 	labelDate.text = [item objectForKey:@"date"];
 	textView.text = [item objectForKey:@"summary"];
-	imageView.image = [[UIImage imageNamed:@"Default.png"] imageByScalingAndCroppingForSize:imageView.frame.size];
+	imageView.image = [[UIImage imageNamed:@"detail_bg.png"] imageByScalingAndCroppingForSize:imageView.frame.size];
 	
 	NSString *type = [item objectForKey:@"enclosureType"];
 	if (type && ([type hasPrefix:@"audio"] || [type hasPrefix:@"video"])) {
