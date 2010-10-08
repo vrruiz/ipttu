@@ -160,6 +160,7 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)conn {
 	NSLog(@"DidFinishLoading");
+	
 	[connection release];
 	connection = nil;
 	
@@ -168,6 +169,9 @@
 	
 	// Refresh table view
 	[self.searchDisplayController.searchResultsTableView reloadData];
+	
+	// Hide status bar activity indicator
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 # pragma mark -
@@ -188,6 +192,9 @@
 
 	[lastSearch setString:searchText];
 
+	// Show status bar activity indicator
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+	
 	// Compose URL
 	NSMutableString *urlString = [[NSMutableString alloc] initWithString:@"http://ajax.googleapis.com/ajax/services/search/web?v=1.0&cx=016374242383990648147%3A8xa_ayqhnne&rsz=large&q="];
 	[urlString appendString:[searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];

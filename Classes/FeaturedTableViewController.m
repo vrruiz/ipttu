@@ -140,10 +140,10 @@
 	PTTUFeed *pttuFeed = [[PTTUFeed alloc] init];
 	[pttuFeed parse:feed];
 	
-	NSUInteger storiesCount = [pttuFeed.stories count];
-	
+	 NSUInteger storiesCount = [pttuFeed.stories count];
+
 	// Check for posts in feed
-	if ( storiesCount == 0 ) {
+	if (storiesCount == 0) {
 		NSLog(@"No stories in feed: %@", feed);
 		[pttuFeed release];
 		[self performSelectorOnMainThread:@selector(backgroundFeedFinished) withObject:nil waitUntilDone:YES];
@@ -153,8 +153,8 @@
 	
 	// Compare lastDate with most recent story date
 	// to check whether the table data needs reloading
-	NSLog(@"Last date %@ -- Feed last date: %@", lastDate, [[pttuFeed.stories objectAtIndex:0] objectForKey:@"date"]);
-	if (lastDate && storiesCount > 0 && [[[pttuFeed.stories objectAtIndex:0] objectForKey:@"date"] isEqualToString:lastDate]) {
+	/*
+	if (lastDate && [[[pttuFeed.stories objectAtIndex:0] objectForKey:@"date"] isEqualToString:lastDate]) {
 		// No need to update
 		NSLog(@"No need to update");
 		[pttuFeed release];
@@ -162,6 +162,7 @@
 		[pool release];
 		return;
 	}
+	 */
 
 	// Update posts array
 	if (posts) {
@@ -387,6 +388,10 @@
 	// Date
 	NSString *date = [[posts objectAtIndex:storyIndex] objectForKey:@"shortDate"];
 	
+	// News source
+	label = (UILabel *)[cell viewWithTag:3];
+	label.text = [[posts objectAtIndex:storyIndex] objectForKey:@"dc:creator"];
+	
 	// Description
     label = (UILabel *)[cell viewWithTag:4];
 	NSString *summary = [[posts objectAtIndex:storyIndex] objectForKey:@"summary"];
@@ -408,46 +413,6 @@
 	}
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
 #pragma mark -
 #pragma mark Table view delegate
 
@@ -466,6 +431,45 @@
 	[postViewController release];
 
 }
+
+/*
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
+
+
+/*
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+ 
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+ }   
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }   
+ }
+ */
+
+
+/*
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
+
+
+/*
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 
 #pragma mark -

@@ -27,6 +27,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+	// Activity indicator
+	activityView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+	buttonActivity = [[UIBarButtonItem alloc] initWithCustomView:activityView];
+	
 	// Load address
 	NSURL *url = [NSURL URLWithString:urlAddress];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -62,6 +66,8 @@
 	[buttonForward release];
 	[buttonCancel release];
 	[buttonRefresh release];
+	[buttonActivity release];
+	[activityView release];
 	[textAddress release];
 	[webView release];
 	
@@ -110,6 +116,10 @@
 	// Enable or disable back and forward buttons
 	[buttonBack setEnabled:[wwwView canGoBack]];
 	[buttonForward setEnabled:[wwwView canGoForward]];
+	
+	// Stop spinner
+	self.navigationItem.rightBarButtonItem = nil;
+	[activityView stopAnimating];
 }
 
 - (BOOL)webView:(UIWebView *)wwwView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
@@ -124,6 +134,10 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)wwwView {
 	NSLog(@"webViewDidStartLoad");
+	
+	// Start spinner
+	[activityView startAnimating];
+	self.navigationItem.rightBarButtonItem = buttonActivity;
 	
 	// Disable bar buttons
 	[buttonCancel setEnabled:YES];

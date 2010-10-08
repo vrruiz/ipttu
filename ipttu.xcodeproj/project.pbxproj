@@ -41,6 +41,10 @@
 		F733CF5A1235A1AE00B3E367 /* icon-video.png in Resources */ = {isa = PBXBuildFile; fileRef = F733CF591235A1AE00B3E367 /* icon-video.png */; };
 		F733CF601235A47E00B3E367 /* icon-audio.png in Resources */ = {isa = PBXBuildFile; fileRef = F733CF5F1235A47E00B3E367 /* icon-audio.png */; };
 		F733CFBA123652DD00B3E367 /* icon-news.png in Resources */ = {isa = PBXBuildFile; fileRef = F733CFB9123652DD00B3E367 /* icon-news.png */; };
+		F73A8EC6125E966D00ABDD8E /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F73A8EC4125E966D00ABDD8E /* AboutViewController.m */; };
+		F73A8EC7125E966D00ABDD8E /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F73A8EC5125E966D00ABDD8E /* AboutViewController.xib */; };
+		F73A8ECF125E999300ABDD8E /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = F73A8ECE125E999300ABDD8E /* about.html */; };
+		F73A8ED7125E9C3800ABDD8E /* icon-about.png in Resources */ = {isa = PBXBuildFile; fileRef = F73A8ED6125E9C3800ABDD8E /* icon-about.png */; };
 		F78AFE4512346A39002B1059 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F78AFE4412346A39002B1059 /* Icon.png */; };
 		F79303AA122D3D370000CDEC /* FeaturedNavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F79303A8122D3D370000CDEC /* FeaturedNavController.xib */; };
 		F79303C2122D3E550000CDEC /* FeaturedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F79303C0122D3E550000CDEC /* FeaturedTableViewController.m */; };
@@ -114,6 +118,11 @@
 		F733CF591235A1AE00B3E367 /* icon-video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-video.png"; sourceTree = "<group>"; };
 		F733CF5F1235A47E00B3E367 /* icon-audio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-audio.png"; sourceTree = "<group>"; };
 		F733CFB9123652DD00B3E367 /* icon-news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-news.png"; sourceTree = "<group>"; };
+		F73A8EC3125E966D00ABDD8E /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Classes/AboutViewController.h; sourceTree = SOURCE_ROOT; };
+		F73A8EC4125E966D00ABDD8E /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Classes/AboutViewController.m; sourceTree = SOURCE_ROOT; };
+		F73A8EC5125E966D00ABDD8E /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AboutViewController.xib; path = Classes/AboutViewController.xib; sourceTree = SOURCE_ROOT; };
+		F73A8ECE125E999300ABDD8E /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
+		F73A8ED6125E9C3800ABDD8E /* icon-about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-about.png"; sourceTree = "<group>"; };
 		F78AFE4412346A39002B1059 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		F79303A8122D3D370000CDEC /* FeaturedNavController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturedNavController.xib; sourceTree = "<group>"; };
 		F79303BF122D3E550000CDEC /* FeaturedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedTableViewController.h; sourceTree = "<group>"; };
@@ -177,6 +186,8 @@
 				F7D7FADE1259E95D00D58A28 /* SearchNavController.m */,
 				F73335A91255D72400B7B92C /* SearchViewController.h */,
 				F73335AA1255D72400B7B92C /* SearchViewController.m */,
+				F73A8EC3125E966D00ABDD8E /* AboutViewController.h */,
+				F73A8EC4125E966D00ABDD8E /* AboutViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -197,7 +208,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				F733CEAE12355A9000B3E367 /* MediaPlayer.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -222,6 +232,7 @@
 				F726EEB8122F251900F8FE0D /* icon-chat.png */,
 				F726EEBB122F2A6300F8FE0D /* icon-feed.png */,
 				F733CE8612354DF300B3E367 /* icon-podcast.png */,
+				F73A8ED6125E9C3800ABDD8E /* icon-about.png */,
 				F726EEBE122F2AAF00F8FE0D /* icon-info.png */,
 				F733CF30123575DE00B3E367 /* icon-tv.png */,
 				F733CFB9123652DD00B3E367 /* icon-news.png */,
@@ -237,7 +248,9 @@
 				F793056C122E6B970000CDEC /* PostViewController.xib */,
 				F7D7FADF1259E95D00D58A28 /* SearchNavController.xib */,
 				F73335AB1255D72400B7B92C /* SearchViewController.xib */,
+				F73A8EC5125E966D00ABDD8E /* AboutViewController.xib */,
 				8D1107310486CEB800E47090 /* ipttu-Info.plist */,
+				F73A8ECE125E999300ABDD8E /* about.html */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -245,6 +258,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F733CEAE12355A9000B3E367 /* MediaPlayer.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
@@ -343,7 +357,6 @@
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ipttu" */;
 			compatibilityVersion = "Xcode 3.1";
-			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -388,6 +401,9 @@
 				75E75495125CD4F60098B225 /* Default@2x.png in Resources */,
 				75E754B1125CD7940098B225 /* Icon@2x.png in Resources */,
 				750C459E125E2AD800AC12AF /* detail_bg.png in Resources */,
+				F73A8EC7125E966D00ABDD8E /* AboutViewController.xib in Resources */,
+				F73A8ECF125E999300ABDD8E /* about.html in Resources */,
+				F73A8ED7125E9C3800ABDD8E /* icon-about.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +437,7 @@
 				F73335F41255E90F00B7B92C /* NSStringExtras.m in Sources */,
 				F73336041255EA1E00B7B92C /* GTMNSString+HTML.m in Sources */,
 				F7D7FAE01259E95D00D58A28 /* SearchNavController.m in Sources */,
+				F73A8EC6125E966D00ABDD8E /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,7 +487,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				PREBINDING = NO;
-				PRODUCT_NAME = "Portal to the Universe";
+				PRODUCT_NAME = PTTUniverse;
 				SDKROOT = iphonesimulator3.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "";
@@ -488,7 +505,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
-				PRODUCT_NAME = "Portal to the Universe";
+				PRODUCT_NAME = PTTUniverse;
 				SDKROOT = iphonesimulator3.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "";

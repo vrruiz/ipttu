@@ -16,6 +16,9 @@
 	UIBarButtonItem *buttonCancel;
 	UIBarButtonItem *buttonRefresh;
 	UIBarButtonItem *buttonAction;
+	UIBarButtonItem *buttonActivity;
+	UIActivityIndicatorView *activityView;
+	
 	UITextField *textAddress;
 	NSString *urlAddress;
 }

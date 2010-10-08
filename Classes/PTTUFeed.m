@@ -61,6 +61,7 @@
 		currentSummary = [[NSMutableString alloc] init];
 		currentLink = [[NSMutableString alloc] init];
 		currentEnclosure = [[NSMutableString alloc] init];
+		currentCreator = [[NSMutableString alloc] init];
 	} else if ([elementName isEqualToString:@"enclosure"]) {
 		currentEnclosure = [[attributeDict objectForKey:@"url"] copy];
 		currentEnclosureType = [[attributeDict objectForKey:@"type"] copy];
@@ -94,6 +95,7 @@
 		[item setObject:currentLink forKey:@"link"];
 		[item setObject:currentEnclosureType forKey:@"enclosureType"];
 		[item setObject:summary forKey:@"summary"];
+		[item setObject:currentCreator forKey:@"dc:creator"];
 		if (date) {
 			[item setObject:date forKey:@"date"];
 		} else {
@@ -128,8 +130,9 @@
 		[currentSummary appendString:string];
 	} else if ([currentElement isEqualToString:@"pubDate"]) {
 		[currentDate appendString:string];
+	} else if ([currentElement isEqualToString:@"dc:creator"]) {
+		[currentCreator appendString:string];
 	}
-	
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
@@ -144,6 +147,7 @@
 	[currentEnclosure release];
 	[currentEnclosureType release];
 	[currentLinkImage release];
+	[currentCreator release];
 }
 
 - (void) dealloc {

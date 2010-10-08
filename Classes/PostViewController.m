@@ -17,6 +17,7 @@
 
 @synthesize labelTitle;
 @synthesize labelDate;
+@synthesize labelCreator;
 @synthesize imageView;
 @synthesize textView;
 @synthesize item;
@@ -53,8 +54,8 @@
 	
 	labelTitle.text = [item objectForKey:@"title"];
 	labelDate.text = [item objectForKey:@"date"];
+	labelCreator.text = [item objectForKey:@"dc:creator"];
 	textView.text = [item objectForKey:@"summary"];
-	imageView.image = [[UIImage imageNamed:@"detail_bg.png"] imageByScalingAndCroppingForSize:imageView.frame.size];
 	
 	NSString *type = [item objectForKey:@"enclosureType"];
 	if (type && ([type hasPrefix:@"audio"] || [type hasPrefix:@"video"])) {
@@ -63,14 +64,24 @@
 					  initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
 					  target:self
 					  action:@selector(openBrowser)];
-		self.navigationItem.rightBarButtonItem = buttonPlay;
+		buttonPlay.style = UIBarButtonItemStyleBordered;
+		
+		// Replace the "Read more..." button with this one in the bottom bar
+		NSMutableArray *barItems = [bottomToolbar.items mutableCopy];
+		[barItems replaceObjectAtIndex:1 withObject:buttonPlay];
+		bottomToolbar.items = barItems;
+ 		[barItems release];
+
+		/* self.navigationItem.rightBarButtonItem = buttonPlay; */
 	} else {
 		// Link button
+		/*
 		buttonLink = [[UIBarButtonItem alloc]
 					  initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
 					  target:self
 					  action:@selector(openBrowser)];
 		self.navigationItem.rightBarButtonItem = buttonLink;
+		*/
 	}
 	
 	// Resize image
@@ -172,9 +183,12 @@
 - (void)dealloc {
 	if (buttonPlay) [buttonPlay release];
 	if (buttonLink) [buttonLink release];
+	[buttonAction release];
+	[bottomToolbar release];
 	[item release];
 	[labelTitle release];
 	[labelDate release];
+	[labelCreator release];
 	[imageView release];
 	[textView release];
 	[scrollView release];

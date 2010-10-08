@@ -16,6 +16,7 @@
 	NSString *currentElement;
 	NSMutableString *currentTitle, *currentDate, *currentSummary, *currentLink;
 	NSMutableString *currentEnclosure, *currentEnclosureType, *currentLinkImage;
+	NSMutableString *currentCreator;
 }
 
 - (id) init;
