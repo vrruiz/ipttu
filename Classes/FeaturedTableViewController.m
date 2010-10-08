@@ -153,7 +153,6 @@
 	
 	// Compare lastDate with most recent story date
 	// to check whether the table data needs reloading
-	/*
 	if (lastDate && [[[pttuFeed.stories objectAtIndex:0] objectForKey:@"date"] isEqualToString:lastDate]) {
 		// No need to update
 		NSLog(@"No need to update");
@@ -162,7 +161,6 @@
 		[pool release];
 		return;
 	}
-	 */
 
 	// Update posts array
 	if (posts) {
