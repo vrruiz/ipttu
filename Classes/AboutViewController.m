@@ -7,7 +7,7 @@
 //
 
 #import "AboutViewController.h"
-
+#import "WebViewController.h"
 
 @implementation AboutViewController
 
@@ -28,7 +28,12 @@
     [super viewDidLoad];
 	
 	// Load view from file about.html
-	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"about" ofType:@"html"] isDirectory:NO]]];
+	NSBundle *bundle = [NSBundle mainBundle]; 
+	NSString *path = [bundle bundlePath];
+	NSString *fullPath = [NSBundle pathForResource:@"about" ofType:@"html" inDirectory:path];
+	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:fullPath]]];
+	
+	webView.delegate = self;
 }
 
 /*
@@ -57,6 +62,23 @@
 	[webView release];
 	
     [super dealloc];
+}
+
+# pragma mark -
+# pragma mark - UIWebView delegate methods
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+	if (navigationType == UIWebViewNavigationTypeLinkClicked) {
+		NSLog(@"click!");
+		// Open internal web browser
+		WebViewController *webViewController = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:[[request URL] absoluteString]];
+		webViewController.hidesBottomBarWhenPushed = YES;
+		webViewController.title = @"Portal to the Universe";
+		[self.navigationController pushViewController:webViewController animated:YES];
+		[webViewController release];
+		return NO;
+	}
+	return YES;
 }
 
 

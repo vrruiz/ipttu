@@ -58,6 +58,9 @@
 		F793056D122E6B970000CDEC /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F793056B122E6B970000CDEC /* PostViewController.m */; };
 		F793056E122E6B970000CDEC /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F793056C122E6B970000CDEC /* PostViewController.xib */; };
 		F79305B5122E79F40000CDEC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F79305B4122E79F40000CDEC /* Default.png */; };
+		F7AEEB74126CB527008C9004 /* logo-about-linotipo.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AEEB73126CB527008C9004 /* logo-about-linotipo.png */; };
+		F7AEEB92126CB5EC008C9004 /* logo-about-esa.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AEEB90126CB5EC008C9004 /* logo-about-esa.png */; };
+		F7AEEB93126CB5EC008C9004 /* logo-about-eso.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AEEB91126CB5EC008C9004 /* logo-about-eso.png */; };
 		F7D7FA571259560100D58A28 /* icon-back.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D7FA551259560100D58A28 /* icon-back.png */; };
 		F7D7FA581259560100D58A28 /* icon-forward.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D7FA561259560100D58A28 /* icon-forward.png */; };
 		F7D7FAE01259E95D00D58A28 /* SearchNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D7FADE1259E95D00D58A28 /* SearchNavController.m */; };
@@ -142,6 +145,9 @@
 		F793056B122E6B970000CDEC /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		F793056C122E6B970000CDEC /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PostViewController.xib; path = Classes/PostViewController.xib; sourceTree = "<group>"; };
 		F79305B4122E79F40000CDEC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F7AEEB73126CB527008C9004 /* logo-about-linotipo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-about-linotipo.png"; sourceTree = "<group>"; };
+		F7AEEB90126CB5EC008C9004 /* logo-about-esa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-about-esa.png"; sourceTree = "<group>"; };
+		F7AEEB91126CB5EC008C9004 /* logo-about-eso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-about-eso.png"; sourceTree = "<group>"; };
 		F7D7FA551259560100D58A28 /* icon-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back.png"; sourceTree = "<group>"; };
 		F7D7FA561259560100D58A28 /* icon-forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-forward.png"; sourceTree = "<group>"; };
 		F7D7FADD1259E95D00D58A28 /* SearchNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchNavController.h; sourceTree = "<group>"; };
@@ -240,6 +246,9 @@
 				F733CF591235A1AE00B3E367 /* icon-video.png */,
 				F7D7FA551259560100D58A28 /* icon-back.png */,
 				F7D7FA561259560100D58A28 /* icon-forward.png */,
+				F7AEEB73126CB527008C9004 /* logo-about-linotipo.png */,
+				F7AEEB90126CB5EC008C9004 /* logo-about-esa.png */,
+				F7AEEB91126CB5EC008C9004 /* logo-about-eso.png */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				F79303A8122D3D370000CDEC /* FeaturedNavController.xib */,
 				F79303C1122D3E550000CDEC /* FeaturedTableViewController.xib */,
@@ -404,6 +413,9 @@
 				F73A8EC7125E966D00ABDD8E /* AboutViewController.xib in Resources */,
 				F73A8ECF125E999300ABDD8E /* about.html in Resources */,
 				F73A8ED7125E9C3800ABDD8E /* icon-about.png in Resources */,
+				F7AEEB74126CB527008C9004 /* logo-about-linotipo.png in Resources */,
+				F7AEEB92126CB5EC008C9004 /* logo-about-esa.png in Resources */,
+				F7AEEB93126CB5EC008C9004 /* logo-about-eso.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
