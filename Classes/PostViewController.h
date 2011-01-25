@@ -21,6 +21,8 @@
 	UIBarButtonItem *buttonLink;
 	UIBarButtonItem *buttonPlay;
 	UIBarButtonItem *buttonAction;
+	NSThread *imageThread;
+	NSMutableData *imageData;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *labelTitle;
@@ -32,6 +34,8 @@
 @property (nonatomic, retain) IBOutlet UIToolbar *bottomToolbar;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *buttonAction;
 @property (nonatomic, retain) NSMutableDictionary *item;
+@property (nonatomic, retain) NSThread *imageThread;
+@property (nonatomic, retain) NSMutableData *imageData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil item:(NSMutableDictionary *)_item;
 - (IBAction) openSafari:(id)sender;

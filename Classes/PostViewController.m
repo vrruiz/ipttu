@@ -25,6 +25,8 @@
 @synthesize scrollView;
 @synthesize bottomToolbar;
 @synthesize buttonAction;
+@synthesize imageThread;
+@synthesize imageData;
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil item:(NSMutableDictionary *)_item {
@@ -51,9 +53,50 @@
     return _isDataSourceAvailable;
 }
 
+#pragma mark -
+#pragma mark Download the image asynchronously with NSURLConnection and NSMutableData
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+	// NSLog(@"didReceiveResponse");
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+	// New data available, append
+	[imageData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+	// Data downloaded. Show image.
+	[item setObject:imageData forKey:@"imageFile"];
+	UIImage *image = [[UIImage alloc] initWithData:imageData];
+	if (image) {
+		imageView.image = [image imageByScalingAndCroppingForSize:imageView.frame.size];
+		[image release];
+	}
+	[imageData release];
+}
+
+- (void)backgroundAsyncImage {
+	// Background asynchronous downloading
+	NSString *url = [item objectForKey:@"enclosure"];
+	NSString *type = [item objectForKey:@"enclosureType"];
+	if (url && [type hasPrefix:@"audio"] == FALSE && [type hasPrefix:@"video"] == FALSE) {
+		imageData = [[NSMutableData alloc] init];
+		NSURLRequest *request = [[NSURLRequest alloc] initWithURL: [NSURL URLWithString:url]]; 
+		NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+		[connection release];
+		[request release];
+	}
+}
+
+#pragma mark -
+#pragma mark View methods
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	imageThread = nil;
 	
 	labelTitle.text = [item objectForKey:@"title"];
 	labelDate.text = [item objectForKey:@"date"];
@@ -96,35 +139,9 @@
 		// Check network availability
 		if ([self isDataSourceAvailable]) {
 			// Download image
-			NSString *url = [item objectForKey:@"enclosure"];
-			NSString *type = [item objectForKey:@"enclosureType"];
-			if (url && [type hasPrefix:@"video"] == FALSE && [type hasPrefix:@"audio"] == FALSE)
-				[NSThread detachNewThreadSelector:@selector(backgroundImage)
-											  toTarget:self
-											withObject:nil];
+			[self backgroundAsyncImage];
 		}
 	}
-}
-
-- (void) backgroundImage {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	NSString *url = [item objectForKey:@"enclosure"];
-	NSString *type = [item objectForKey:@"enclosureType"];
-	if (url && [type hasPrefix:@"audio"] == FALSE && [type hasPrefix:@"video"] == FALSE) {
-		// Download image
-		NSData *currentImage = [[[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:url]] autorelease];
-		[item setObject:currentImage forKey:@"imageFile"];
-
-		// Refresh view
-		[self performSelectorOnMainThread:@selector(backgroundImageFinished) withObject:nil waitUntilDone:YES];
-	}
-
-	[pool release];
-}
-
-- (void) backgroundImageFinished {
-	UIImage *image = [[[UIImage alloc] initWithData:[item objectForKey:@"imageFile"]] autorelease];
-	if (image) imageView.image = [image imageByScalingAndCroppingForSize:imageView.frame.size];
 }
 
 /*
@@ -176,12 +193,17 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+	NSLog(@"Stop thread");
+	[imageThread cancel];
+	[imageThread release];
+}
+
 - (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-
 
 - (void)dealloc {
 	if (buttonPlay) [buttonPlay release];
