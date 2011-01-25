@@ -23,6 +23,7 @@
 @synthesize tabController;
 @synthesize navController;
 @synthesize buttonRefresh;
+@synthesize tvCell;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -186,7 +187,7 @@
 	NSUInteger n;
 	for (n = 0; n < [posts count]; n++) {
 		NSDictionary *item = [posts objectAtIndex:n];
-		NSMutableDictionary *post = [[NSMutableDictionary alloc] initWithDictionary:[item copy]];
+		NSMutableDictionary *post = [[NSMutableDictionary alloc] initWithDictionary:item];
 		NSString *type = [item objectForKey:@"enclosureType"];
 		NSLog(@"enclosure type: %@", type);
 		NSString *url = [item objectForKey:@"enclosure"];
@@ -194,11 +195,12 @@
 		if (url && [type hasPrefix:@"video"] == FALSE && [type hasPrefix:@"audio"] == FALSE) {
 			// Download image
 			NSLog(@"backgroundFeed: Download image: %@", url);
-			NSData *currentImage = [[NSData dataWithContentsOfURL:[NSURL URLWithString:url]] autorelease];
-			if (currentImage) [post setObject:[currentImage copy] forKey:@"imageFile"];
+			NSData *currentImage = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]] ;
+			if (currentImage) [post setObject:currentImage forKey:@"imageFile"];
+			// [currentImage release];
 		}
 		// Replace
-		[posts replaceObjectAtIndex:n withObject:[post copy]];
+		[posts replaceObjectAtIndex:n withObject:post];
 		// Update table view to show image
 		[self performSelectorOnMainThread:@selector(backgroundImageFinished:) withObject:[NSNumber numberWithInt:n] waitUntilDone:YES];
 		[post release];
@@ -322,18 +324,19 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *MyIdentifier = @"Cell";
+    static NSString *MyIdentifier = @"tvCell";
 	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	
     if (cell == nil) {
+		NSLog(@"");
 		// Load custom Cell View from XIB file
-        [[NSBundle mainBundle] loadNibNamed:@"tvCell" owner:self options:nil];
+		[[NSBundle mainBundle] loadNibNamed:@"tvCell" owner:self options:nil];
 		if (tvCell == nil) {
 			NSLog(@"tvCell is nil");
 		}
         cell = tvCell;
-        // self.tvCell = nil; // Comment this. Is Apple official doc wrong?
+        self.tvCell = nil; // Comment this. Is Apple official doc wrong?
     }
 
 	int storyIndex = [indexPath indexAtPosition:[indexPath length] - 1];
@@ -422,7 +425,7 @@
 	
 	// Show post view
 	NSLog(@"FeaturedTableViewController. didSelectRowAtIndexPath. postViewController.");
-	PostViewController *postViewController = [[PostViewController alloc] initWithNibName:@"PostViewController" bundle:nil item:[post copy]];
+	PostViewController *postViewController = [[PostViewController alloc] initWithNibName:@"PostViewController" bundle:nil item:post];
 	postViewController.hidesBottomBarWhenPushed = YES;
 	postViewController.title = [post objectForKey:@"title"];
 	[navController pushViewController:postViewController animated:YES];

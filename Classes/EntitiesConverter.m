@@ -36,7 +36,7 @@
 	[xmlParse setDelegate:self];
 	[xmlParse parse];
 	NSString* returnStr = [[NSString alloc] initWithFormat:@"%@",resultString];
-	return returnStr;
+	return [returnStr autorelease];
 }
 
 - (void)dealloc {

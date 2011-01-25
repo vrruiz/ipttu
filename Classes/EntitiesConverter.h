@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EntitiesConverter : NSObject {
+@interface EntitiesConverter : NSObject <NSXMLParserDelegate> {
 	NSMutableString* resultString;
 }
 

@@ -12,6 +12,7 @@
 
 #import <SystemConfiguration/SCNetworkReachability.h>
 #import <MediaPlayer/MPMoviePlayerViewController.h>
+#import <MediaPlayer/MPMoviePlayerController.h>
 
 @implementation PostViewController
 
@@ -22,6 +23,8 @@
 @synthesize textView;
 @synthesize item;
 @synthesize scrollView;
+@synthesize bottomToolbar;
+@synthesize buttonAction;
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil item:(NSMutableDictionary *)_item {
@@ -110,7 +113,7 @@
 	if (url && [type hasPrefix:@"audio"] == FALSE && [type hasPrefix:@"video"] == FALSE) {
 		// Download image
 		NSData *currentImage = [[[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:url]] autorelease];
-		[item setObject:[currentImage copy] forKey:@"imageFile"];
+		[item setObject:currentImage forKey:@"imageFile"];
 
 		// Refresh view
 		[self performSelectorOnMainThread:@selector(backgroundImageFinished) withObject:nil waitUntilDone:YES];

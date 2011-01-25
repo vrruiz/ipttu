@@ -33,8 +33,8 @@
     [rssParser setShouldReportNamespacePrefixes:NO];
     [rssParser setShouldResolveExternalEntities:NO];
 	
+	[data release];
     [rssParser parse];
-	
 }
 
 - (void)parse:(NSString *)feedURL {
@@ -48,6 +48,7 @@
 	
 	UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error loading content" message:errorString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 	[errorAlert show];
+	[errorAlert release];
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{			
@@ -109,13 +110,11 @@
 		[item setObject:currentEnclosure forKey:@"enclosure"];
 		[item setObject:currentEnclosureType forKey:@"enclosureType"];
 		if (currentLinkImage) [item setObject:currentLinkImage forKey:@"linkImage"];
-		[stories addObject:[item copy]];
+		[stories addObject:item];
 		NSLog(@"Parser. Adding story: %@", currentTitle);
 
 		// Release
 		[converter release];
-		[title release];
-		[summary release];
 	}
 	
 }

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface PTTUFeed : NSObject {
+@interface PTTUFeed : NSObject <NSXMLParserDelegate> {
 	NSXMLParser *rssParser;
 	NSMutableArray *stories;
 	NSMutableDictionary *item;

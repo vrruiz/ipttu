@@ -31,5 +31,6 @@
 @property (nonatomic, retain) IBOutlet UITabBarController *tabController;
 @property (nonatomic, retain) IBOutlet UINavigationController *navController;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *buttonRefresh;
+@property (nonatomic, retain) IBOutlet UITableViewCell *tvCell;;
 
 @end

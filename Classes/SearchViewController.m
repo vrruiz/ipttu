@@ -140,9 +140,9 @@
 		
 		// Append to array
 		NSMutableDictionary *newItem = [[NSMutableDictionary alloc] init];
-		[newItem setObject:[title copy] forKey:@"title"];
-		[newItem setObject:[link copy] forKey:@"link"];
-		[newItem setObject:[summary copy] forKey:@"summary"];
+		[newItem setObject:title forKey:@"title"];
+		[newItem setObject:link forKey:@"link"];
+		[newItem setObject:summary forKey:@"summary"];
 		[items addObject:newItem];
 		[newItem release];
 	}
