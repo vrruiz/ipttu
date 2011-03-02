@@ -11,6 +11,7 @@
 
 @interface WebViewController : UIViewController <UIWebViewDelegate> {
 	UIWebView *webView;
+	UIButton *buttonDismiss;
 	UIBarButtonItem *buttonBack;
 	UIBarButtonItem *buttonForward;
 	UIBarButtonItem *buttonCancel;
@@ -24,6 +25,7 @@
 }
 
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
+@property (nonatomic, retain) IBOutlet UIButton *buttonDismiss;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *buttonBack;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *buttonForward;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *buttonCancel;

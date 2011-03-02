@@ -46,7 +46,6 @@
 		F73A8ECF125E999300ABDD8E /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = F73A8ECE125E999300ABDD8E /* about.html */; };
 		F73A8ED7125E9C3800ABDD8E /* icon-about.png in Resources */ = {isa = PBXBuildFile; fileRef = F73A8ED6125E9C3800ABDD8E /* icon-about.png */; };
 		F78AFE4512346A39002B1059 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F78AFE4412346A39002B1059 /* Icon.png */; };
-		F79303AA122D3D370000CDEC /* FeaturedNavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F79303A8122D3D370000CDEC /* FeaturedNavController.xib */; };
 		F79303C2122D3E550000CDEC /* FeaturedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F79303C0122D3E550000CDEC /* FeaturedTableViewController.m */; };
 		F79303C3122D3E550000CDEC /* FeaturedTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F79303C1122D3E550000CDEC /* FeaturedTableViewController.xib */; };
 		F79303FB122D58350000CDEC /* EntitiesConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = F79303FA122D58350000CDEC /* EntitiesConverter.m */; };
@@ -65,6 +64,20 @@
 		F7D7FA581259560100D58A28 /* icon-forward.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D7FA561259560100D58A28 /* icon-forward.png */; };
 		F7D7FAE01259E95D00D58A28 /* SearchNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D7FADE1259E95D00D58A28 /* SearchNavController.m */; };
 		F7D7FAE11259E95D00D58A28 /* SearchNavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D7FADF1259E95D00D58A28 /* SearchNavController.xib */; };
+		F7E38BB0131E7D2800211273 /* iPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E38BAE131E7D2800211273 /* iPhoneViewController.m */; };
+		F7E38BB1131E7D2800211273 /* iPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7E38BAF131E7D2800211273 /* iPhoneViewController.xib */; };
+		F7E38BF3131E81BA00211273 /* PTTUFeedDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E38BF2131E81BA00211273 /* PTTUFeedDownloader.m */; };
+		F7E38BFE131E81C900211273 /* NewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E38BF5131E81C900211273 /* NewsView.m */; };
+		F7E38C00131E81C900211273 /* NewsScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E38BF9131E81C900211273 /* NewsScrollView.m */; };
+		F7E38C01131E81C900211273 /* PageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E38BFB131E81C900211273 /* PageControl.m */; };
+		F7E38C02131E81C900211273 /* NewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E38BFD131E81C900211273 /* NewsController.m */; };
+		F7E38C14131E82D300211273 /* NewsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7E38C13131E82D300211273 /* NewsController.xib */; };
+		F7E38C18131E831000211273 /* header_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E38C17131E831000211273 /* header_logo.png */; };
+		F7E38C39131E85C600211273 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7E38C38131E85C600211273 /* MainWindow-iPad.xib */; };
+		F7E38C83131E8A4900211273 /* WebViewController-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7E38C82131E8A4900211273 /* WebViewController-iPad.xib */; };
+		F7E38C86131E8A7C00211273 /* FeaturedNavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7E38C85131E8A7C00211273 /* FeaturedNavController.xib */; };
+		F7E38CA7131E927800211273 /* icon-black-back.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E38CA5131E927800211273 /* icon-black-back.png */; };
+		F7E38CA8131E927800211273 /* icon-black-down.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E38CA6131E927800211273 /* icon-black-down.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,13 +134,12 @@
 		F733CF591235A1AE00B3E367 /* icon-video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-video.png"; sourceTree = "<group>"; };
 		F733CF5F1235A47E00B3E367 /* icon-audio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-audio.png"; sourceTree = "<group>"; };
 		F733CFB9123652DD00B3E367 /* icon-news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-news.png"; sourceTree = "<group>"; };
-		F73A8EC3125E966D00ABDD8E /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Classes/AboutViewController.h; sourceTree = SOURCE_ROOT; };
-		F73A8EC4125E966D00ABDD8E /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Classes/AboutViewController.m; sourceTree = SOURCE_ROOT; };
-		F73A8EC5125E966D00ABDD8E /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AboutViewController.xib; path = Classes/AboutViewController.xib; sourceTree = SOURCE_ROOT; };
+		F73A8EC3125E966D00ABDD8E /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		F73A8EC4125E966D00ABDD8E /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		F73A8EC5125E966D00ABDD8E /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AboutViewController.xib; path = Classes/AboutViewController.xib; sourceTree = "<group>"; };
 		F73A8ECE125E999300ABDD8E /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		F73A8ED6125E9C3800ABDD8E /* icon-about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-about.png"; sourceTree = "<group>"; };
 		F78AFE4412346A39002B1059 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		F79303A8122D3D370000CDEC /* FeaturedNavController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturedNavController.xib; sourceTree = "<group>"; };
 		F79303BF122D3E550000CDEC /* FeaturedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedTableViewController.h; sourceTree = "<group>"; };
 		F79303C0122D3E550000CDEC /* FeaturedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedTableViewController.m; sourceTree = "<group>"; };
 		F79303C1122D3E550000CDEC /* FeaturedTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FeaturedTableViewController.xib; path = Classes/FeaturedTableViewController.xib; sourceTree = "<group>"; };
@@ -153,6 +165,26 @@
 		F7D7FADD1259E95D00D58A28 /* SearchNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchNavController.h; sourceTree = "<group>"; };
 		F7D7FADE1259E95D00D58A28 /* SearchNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchNavController.m; sourceTree = "<group>"; };
 		F7D7FADF1259E95D00D58A28 /* SearchNavController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchNavController.xib; path = Classes/SearchNavController.xib; sourceTree = "<group>"; };
+		F7E38BAD131E7D2800211273 /* iPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneViewController.h; sourceTree = "<group>"; };
+		F7E38BAE131E7D2800211273 /* iPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneViewController.m; sourceTree = "<group>"; };
+		F7E38BAF131E7D2800211273 /* iPhoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = iPhoneViewController.xib; path = Classes/iPhoneViewController.xib; sourceTree = "<group>"; };
+		F7E38BF1131E81BA00211273 /* PTTUFeedDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTTUFeedDownloader.h; sourceTree = "<group>"; };
+		F7E38BF2131E81BA00211273 /* PTTUFeedDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTTUFeedDownloader.m; sourceTree = "<group>"; };
+		F7E38BF4131E81C900211273 /* NewsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsView.h; sourceTree = "<group>"; };
+		F7E38BF5131E81C900211273 /* NewsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsView.m; sourceTree = "<group>"; };
+		F7E38BF8131E81C900211273 /* NewsScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsScrollView.h; sourceTree = "<group>"; };
+		F7E38BF9131E81C900211273 /* NewsScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsScrollView.m; sourceTree = "<group>"; };
+		F7E38BFA131E81C900211273 /* PageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageControl.h; sourceTree = "<group>"; };
+		F7E38BFB131E81C900211273 /* PageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageControl.m; sourceTree = "<group>"; };
+		F7E38BFC131E81C900211273 /* NewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsController.h; sourceTree = "<group>"; };
+		F7E38BFD131E81C900211273 /* NewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsController.m; sourceTree = "<group>"; };
+		F7E38C13131E82D300211273 /* NewsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NewsController.xib; path = Classes/NewsController.xib; sourceTree = "<group>"; };
+		F7E38C17131E831000211273 /* header_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header_logo.png; sourceTree = "<group>"; };
+		F7E38C38131E85C600211273 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		F7E38C82131E8A4900211273 /* WebViewController-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "WebViewController-iPad.xib"; path = "Classes/WebViewController-iPad.xib"; sourceTree = "<group>"; };
+		F7E38C85131E8A7C00211273 /* FeaturedNavController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FeaturedNavController.xib; path = Classes/FeaturedNavController.xib; sourceTree = "<group>"; };
+		F7E38CA5131E927800211273 /* icon-black-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-black-back.png"; sourceTree = "<group>"; };
+		F7E38CA6131E927800211273 /* icon-black-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-black-down.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,24 +208,11 @@
 			children = (
 				F73335B41255DC5E00B7B92C /* Extras */,
 				F73335771255D6C200B7B92C /* JSON */,
-				F79303FC122D58410000CDEC /* PTTUFeed.h */,
-				F79303FD122D58410000CDEC /* PTTUFeed.m */,
+				F7E38BEF131E816E00211273 /* Common */,
+				F7E38BEE131E814500211273 /* iPhone */,
+				F7E38BF0131E81A500211273 /* iPad */,
 				1D3623240D0F684500981E51 /* ipttuAppDelegate.h */,
 				1D3623250D0F684500981E51 /* ipttuAppDelegate.m */,
-				F73332AE12526DFA00B7B92C /* FeaturedNavController.h */,
-				F73332AF12526DFA00B7B92C /* FeaturedNavController.m */,
-				F79303BF122D3E550000CDEC /* FeaturedTableViewController.h */,
-				F79303C0122D3E550000CDEC /* FeaturedTableViewController.m */,
-				F793046D122D64430000CDEC /* WebViewController.h */,
-				F793046E122D64430000CDEC /* WebViewController.m */,
-				F793056A122E6B970000CDEC /* PostViewController.h */,
-				F793056B122E6B970000CDEC /* PostViewController.m */,
-				F7D7FADD1259E95D00D58A28 /* SearchNavController.h */,
-				F7D7FADE1259E95D00D58A28 /* SearchNavController.m */,
-				F73335A91255D72400B7B92C /* SearchViewController.h */,
-				F73335AA1255D72400B7B92C /* SearchViewController.m */,
-				F73A8EC3125E966D00ABDD8E /* AboutViewController.h */,
-				F73A8EC4125E966D00ABDD8E /* AboutViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -230,34 +249,15 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				750C459D125E2AD800AC12AF /* detail_bg.png */,
+				F7E38C54131E878900211273 /* XIB */,
+				F7E38C51131E871700211273 /* Icons */,
+				F78AFE4412346A39002B1059 /* Icon.png */,
 				75E754B0125CD7940098B225 /* Icon@2x.png */,
 				75E75494125CD4F60098B225 /* Default@2x.png */,
 				F79305B4122E79F40000CDEC /* Default.png */,
-				F78AFE4412346A39002B1059 /* Icon.png */,
-				F726EEB8122F251900F8FE0D /* icon-chat.png */,
-				F726EEBB122F2A6300F8FE0D /* icon-feed.png */,
-				F733CE8612354DF300B3E367 /* icon-podcast.png */,
-				F73A8ED6125E9C3800ABDD8E /* icon-about.png */,
-				F726EEBE122F2AAF00F8FE0D /* icon-info.png */,
-				F733CF30123575DE00B3E367 /* icon-tv.png */,
-				F733CFB9123652DD00B3E367 /* icon-news.png */,
-				F733CF5F1235A47E00B3E367 /* icon-audio.png */,
-				F733CF591235A1AE00B3E367 /* icon-video.png */,
-				F7D7FA551259560100D58A28 /* icon-back.png */,
-				F7D7FA561259560100D58A28 /* icon-forward.png */,
 				F7AEEB73126CB527008C9004 /* logo-about-linotipo.png */,
 				F7AEEB90126CB5EC008C9004 /* logo-about-esa.png */,
 				F7AEEB91126CB5EC008C9004 /* logo-about-eso.png */,
-				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
-				F79303A8122D3D370000CDEC /* FeaturedNavController.xib */,
-				F79303C1122D3E550000CDEC /* FeaturedTableViewController.xib */,
-				F7930428122D5A420000CDEC /* tvCell.xib */,
-				F793046F122D64430000CDEC /* WebViewController.xib */,
-				F793056C122E6B970000CDEC /* PostViewController.xib */,
-				F7D7FADF1259E95D00D58A28 /* SearchNavController.xib */,
-				F73335AB1255D72400B7B92C /* SearchViewController.xib */,
-				F73A8EC5125E966D00ABDD8E /* AboutViewController.xib */,
 				8D1107310486CEB800E47090 /* ipttu-Info.plist */,
 				F73A8ECE125E999300ABDD8E /* about.html */,
 			);
@@ -336,6 +336,129 @@
 			name = Extras;
 			sourceTree = "<group>";
 		};
+		F7E38BEE131E814500211273 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				F7E38BAD131E7D2800211273 /* iPhoneViewController.h */,
+				F7E38BAE131E7D2800211273 /* iPhoneViewController.m */,
+				F73332AE12526DFA00B7B92C /* FeaturedNavController.h */,
+				F73332AF12526DFA00B7B92C /* FeaturedNavController.m */,
+				F79303BF122D3E550000CDEC /* FeaturedTableViewController.h */,
+				F79303C0122D3E550000CDEC /* FeaturedTableViewController.m */,
+				F793056A122E6B970000CDEC /* PostViewController.h */,
+				F793056B122E6B970000CDEC /* PostViewController.m */,
+				F7D7FADD1259E95D00D58A28 /* SearchNavController.h */,
+				F7D7FADE1259E95D00D58A28 /* SearchNavController.m */,
+				F73335A91255D72400B7B92C /* SearchViewController.h */,
+				F73335AA1255D72400B7B92C /* SearchViewController.m */,
+				F73A8EC3125E966D00ABDD8E /* AboutViewController.h */,
+				F73A8EC4125E966D00ABDD8E /* AboutViewController.m */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		F7E38BEF131E816E00211273 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F79303FC122D58410000CDEC /* PTTUFeed.h */,
+				F79303FD122D58410000CDEC /* PTTUFeed.m */,
+				F7E38BF1131E81BA00211273 /* PTTUFeedDownloader.h */,
+				F7E38BF2131E81BA00211273 /* PTTUFeedDownloader.m */,
+				F793046D122D64430000CDEC /* WebViewController.h */,
+				F793046E122D64430000CDEC /* WebViewController.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		F7E38BF0131E81A500211273 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				F7E38BF4131E81C900211273 /* NewsView.h */,
+				F7E38BF5131E81C900211273 /* NewsView.m */,
+				F7E38BF8131E81C900211273 /* NewsScrollView.h */,
+				F7E38BF9131E81C900211273 /* NewsScrollView.m */,
+				F7E38BFA131E81C900211273 /* PageControl.h */,
+				F7E38BFB131E81C900211273 /* PageControl.m */,
+				F7E38BFC131E81C900211273 /* NewsController.h */,
+				F7E38BFD131E81C900211273 /* NewsController.m */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		F7E38C03131E81E200211273 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				F7E38C38131E85C600211273 /* MainWindow-iPad.xib */,
+				F7E38C82131E8A4900211273 /* WebViewController-iPad.xib */,
+				F7E38C13131E82D300211273 /* NewsController.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		F7E38C3D131E861300211273 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				F7E38BAF131E7D2800211273 /* iPhoneViewController.xib */,
+				F7E38C85131E8A7C00211273 /* FeaturedNavController.xib */,
+				F79303C1122D3E550000CDEC /* FeaturedTableViewController.xib */,
+				F793046F122D64430000CDEC /* WebViewController.xib */,
+				F793056C122E6B970000CDEC /* PostViewController.xib */,
+				F7D7FADF1259E95D00D58A28 /* SearchNavController.xib */,
+				F73335AB1255D72400B7B92C /* SearchViewController.xib */,
+				F73A8EC5125E966D00ABDD8E /* AboutViewController.xib */,
+				F7930428122D5A420000CDEC /* tvCell.xib */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		F7E38C51131E871700211273 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				F7E38C52131E872B00211273 /* iPhone */,
+				F7E38C53131E874A00211273 /* iPad */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		F7E38C52131E872B00211273 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				F726EEB8122F251900F8FE0D /* icon-chat.png */,
+				F726EEBB122F2A6300F8FE0D /* icon-feed.png */,
+				F733CE8612354DF300B3E367 /* icon-podcast.png */,
+				F73A8ED6125E9C3800ABDD8E /* icon-about.png */,
+				F726EEBE122F2AAF00F8FE0D /* icon-info.png */,
+				F733CF30123575DE00B3E367 /* icon-tv.png */,
+				F733CFB9123652DD00B3E367 /* icon-news.png */,
+				F733CF5F1235A47E00B3E367 /* icon-audio.png */,
+				F733CF591235A1AE00B3E367 /* icon-video.png */,
+				F7D7FA551259560100D58A28 /* icon-back.png */,
+				F7D7FA561259560100D58A28 /* icon-forward.png */,
+				750C459D125E2AD800AC12AF /* detail_bg.png */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		F7E38C53131E874A00211273 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				F7E38CA5131E927800211273 /* icon-black-back.png */,
+				F7E38CA6131E927800211273 /* icon-black-down.png */,
+				F7E38C17131E831000211273 /* header_logo.png */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		F7E38C54131E878900211273 /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				F7E38C3D131E861300211273 /* iPhone */,
+				F7E38C03131E81E200211273 /* iPad */,
+			);
+			name = XIB;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -389,7 +512,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				F79303AA122D3D370000CDEC /* FeaturedNavController.xib in Resources */,
 				F79303C3122D3E550000CDEC /* FeaturedTableViewController.xib in Resources */,
 				F7930429122D5A420000CDEC /* tvCell.xib in Resources */,
 				F7930471122D64430000CDEC /* WebViewController.xib in Resources */,
@@ -417,6 +539,14 @@
 				F7AEEB74126CB527008C9004 /* logo-about-linotipo.png in Resources */,
 				F7AEEB92126CB5EC008C9004 /* logo-about-esa.png in Resources */,
 				F7AEEB93126CB5EC008C9004 /* logo-about-eso.png in Resources */,
+				F7E38BB1131E7D2800211273 /* iPhoneViewController.xib in Resources */,
+				F7E38C14131E82D300211273 /* NewsController.xib in Resources */,
+				F7E38C18131E831000211273 /* header_logo.png in Resources */,
+				F7E38C39131E85C600211273 /* MainWindow-iPad.xib in Resources */,
+				F7E38C83131E8A4900211273 /* WebViewController-iPad.xib in Resources */,
+				F7E38C86131E8A7C00211273 /* FeaturedNavController.xib in Resources */,
+				F7E38CA7131E927800211273 /* icon-black-back.png in Resources */,
+				F7E38CA8131E927800211273 /* icon-black-down.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +581,12 @@
 				F73336041255EA1E00B7B92C /* GTMNSString+HTML.m in Sources */,
 				F7D7FAE01259E95D00D58A28 /* SearchNavController.m in Sources */,
 				F73A8EC6125E966D00ABDD8E /* AboutViewController.m in Sources */,
+				F7E38BB0131E7D2800211273 /* iPhoneViewController.m in Sources */,
+				F7E38BF3131E81BA00211273 /* PTTUFeedDownloader.m in Sources */,
+				F7E38BFE131E81C900211273 /* NewsView.m in Sources */,
+				F7E38C00131E81C900211273 /* NewsScrollView.m in Sources */,
+				F7E38C01131E81C900211273 /* PageControl.m in Sources */,
+				F7E38C02131E81C900211273 /* NewsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +597,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -470,7 +607,8 @@
 				INFOPLIST_FILE = "ipttu-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				PRODUCT_NAME = ipttu;
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -478,6 +616,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -485,7 +624,8 @@
 				INFOPLIST_FILE = "ipttu-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				PRODUCT_NAME = ipttu;
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

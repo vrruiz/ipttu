@@ -13,6 +13,7 @@
 @synthesize webView;
 @synthesize buttonBack, buttonForward, buttonCancel, buttonRefresh, buttonAction;
 @synthesize textAddress;
+@synthesize	buttonDismiss;
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil url:(NSString *)url {
@@ -28,6 +29,7 @@
     [super viewDidLoad];
 	
 	// Activity indicator
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	activityView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
 	buttonActivity = [[UIBarButtonItem alloc] initWithCustomView:activityView];
 	
@@ -39,13 +41,11 @@
 }
 
 
-/*
- // Override to allow orientations other than the default portrait orientation.
- - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
- // Return YES for supported orientations
- return (interfaceOrientation == UIInterfaceOrientationPortrait);
- }
- */
+// Override to allow orientations other than the default portrait orientation.
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+	// Return YES for supported orientations
+	return YES;
+}
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -62,6 +62,7 @@
 
 - (void)dealloc {
 	[urlAddress release];
+	[buttonDismiss release];
 	[buttonBack release];
 	[buttonForward release];
 	[buttonCancel release];
@@ -120,6 +121,7 @@
 	// Stop spinner
 	self.navigationItem.rightBarButtonItem = nil;
 	[activityView stopAnimating];
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 - (BOOL)webView:(UIWebView *)wwwView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
