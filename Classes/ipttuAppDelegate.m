@@ -7,35 +7,40 @@
 //
 
 #import "ipttuAppDelegate.h"
-#import "FeaturedNavController.h"
+#import "iPhoneViewController.h"
+#import "NewsController.h"
 
 @implementation ipttuAppDelegate
 
 @synthesize window;
-@synthesize rootController;
-@synthesize featuredNavController;
-@synthesize blogNavController;
-@synthesize podcastNavController;
+@synthesize iphoneViewController;
+@synthesize ipadViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-    // Override point for customization after application launch
+	// Select device
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		// iPad
+		ipadViewController = [[NewsController alloc] initWithNibName:@"NewsController" bundle:nil];
+		
+		// Fix view positioning (below status bar if not modified)
+		CGRect rectFix = ipadViewController.view.frame;
+		rectFix = CGRectOffset(rectFix, 0.0, 20.0);
+		ipadViewController.view.frame = rectFix;
+		
+		[window addSubview:ipadViewController.view];
+	} else {
+		// iPhone
+		iphoneViewController = [[iPhoneViewController alloc] initWithNibName:@"iPhoneViewController" bundle:nil];
+		[window addSubview:iphoneViewController.view];
+	}
 	
-	// This sets the feed URLs
-	featuredNavController.feed = @"http://www.portaltotheuniverse.org/rss/news/featured/";
-	blogNavController.feed = @"http://www.portaltotheuniverse.org/rss/blogs/posts/featured/";
-	podcastNavController.feed = @"http://www.portaltotheuniverse.org/rss/podcasts/eps/featured/";
-
-	[window addSubview:rootController.view];
     [window makeKeyAndVisible];
-	
 	return YES;
 }
 
 - (void)dealloc {
-	[rootController release];
-	[featuredNavController release];
-	[blogNavController release];
-	[podcastNavController release];
+	if (iphoneViewController) [iphoneViewController release];
+	if (ipadViewController) [ipadViewController release];
     [window release];
     [super dealloc];
 }

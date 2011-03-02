@@ -7,21 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-@class FeaturedNavController;
+
+@class iPhoneViewController;
+@class NewsController;
 
 @interface ipttuAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
-	IBOutlet UITabBarController *rootController;
-	IBOutlet FeaturedNavController *featuredNavController;
-	IBOutlet FeaturedNavController *blogNavController;
-	IBOutlet FeaturedNavController *podcastNavController;
+	iPhoneViewController *iphoneViewController;
+	NewsController *ipadViewController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UITabBarController *rootController;
-@property (nonatomic, retain) IBOutlet FeaturedNavController *featuredNavController;
-@property (nonatomic, retain) IBOutlet FeaturedNavController *blogNavController;
-@property (nonatomic, retain) IBOutlet FeaturedNavController *podcastNavController;
+@property (nonatomic, retain) iPhoneViewController *iphoneViewController;
+@property (nonatomic, retain) NewsController *ipadViewController;
 
 @end
 
