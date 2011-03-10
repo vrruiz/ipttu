@@ -18,6 +18,7 @@
 @synthesize scrollSuperview;
 @synthesize scrollView;
 @synthesize pageControl;
+@synthesize viewButtonSection;
 @synthesize labelDate;
 @synthesize buttonSection;
 @synthesize labelSection;
@@ -494,8 +495,8 @@
 															 delegate:self
 													cancelButtonTitle:@"Cancel"
 												destructiveButtonTitle:nil
-													otherButtonTitles:@"Featured News", @"Featured Blogs", @"About", nil] autorelease];
-	[actionSheet showFromRect:self.labelSection.frame inView:self.view animated:YES];
+													otherButtonTitles:@"News", @"Blogs", @"About", nil] autorelease];
+	[actionSheet showFromRect:self.viewButtonSection.frame inView:self.view animated:YES];
 }
 
 #pragma mark -
@@ -504,7 +505,6 @@
 - (void)aboutViewControllerDidTouch:(AboutViewController *)_aboutViewController {
 	// Callback for AboutViewController close button
 	// Close and release memory.
-	NSLog(@"Hola");
 	[self.aboutViewController dismissModalViewControllerAnimated:YES];
 	self.aboutViewController = nil;
 }
@@ -579,6 +579,7 @@
 	[buttonSection release];
 	[labelSection release];
 	[labelDate release];
+	[viewButtonSection release];
 	[stories release];
 	[scrollView release];
 	[scrollSuperview release];

@@ -21,6 +21,7 @@ NewsViewDelegate, UIActionSheetDelegate, AboutViewControllerDelegate> {
 	WebViewController *webViewController;
 	AboutViewController *aboutViewController;
 	PageControl *pageControl;
+	UIImageView *viewButtonSection;
 	UILabel *labelDate;
 	UILabel *labelSection;
 	UIButton *buttonSection;
@@ -36,6 +37,7 @@ NewsViewDelegate, UIActionSheetDelegate, AboutViewControllerDelegate> {
 @property (nonatomic, retain) IBOutlet UIView *scrollSuperview;
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, retain) IBOutlet PageControl *pageControl;
+@property (nonatomic, retain) IBOutlet UIImageView *viewButtonSection;
 @property (nonatomic, retain) IBOutlet UILabel *labelDate;
 @property (nonatomic, retain) IBOutlet UILabel *labelSection;
 @property (nonatomic, retain) IBOutlet UIButton *buttonSection;

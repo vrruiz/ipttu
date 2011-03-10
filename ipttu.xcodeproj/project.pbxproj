@@ -27,6 +27,7 @@
 		F731B3F71329266D00CD3C7C /* AboutViewController-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F731B3F61329266C00CD3C7C /* AboutViewController-iPad.xib */; };
 		F731B46D132936C400CD3C7C /* README in Resources */ = {isa = PBXBuildFile; fileRef = F731B46C132936C400CD3C7C /* README */; };
 		F731B46F132936E100CD3C7C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F731B46E132936E100CD3C7C /* LICENSE */; };
+		F731B47F13293AAB00CD3C7C /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = F731B47E13293AAB00CD3C7C /* TODO */; };
 		F73332B012526DFA00B7B92C /* FeaturedNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = F73332AF12526DFA00B7B92C /* FeaturedNavController.m */; };
 		F733358C1255D6C200B7B92C /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F733357A1255D6C200B7B92C /* NSCharacterSet_Extensions.m */; };
 		F733358D1255D6C200B7B92C /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F733357C1255D6C200B7B92C /* CDataScanner_Extensions.m */; };
@@ -112,6 +113,7 @@
 		F731B3F61329266C00CD3C7C /* AboutViewController-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "AboutViewController-iPad.xib"; path = "Classes/AboutViewController-iPad.xib"; sourceTree = "<group>"; };
 		F731B46C132936C400CD3C7C /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		F731B46E132936E100CD3C7C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		F731B47E13293AAB00CD3C7C /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		F73332AE12526DFA00B7B92C /* FeaturedNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedNavController.h; sourceTree = "<group>"; };
 		F73332AF12526DFA00B7B92C /* FeaturedNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedNavController.m; sourceTree = "<group>"; };
 		F73335791255D6C200B7B92C /* NSCharacterSet_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCharacterSet_Extensions.h; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			children = (
 				F731B46C132936C400CD3C7C /* README */,
 				F731B46E132936E100CD3C7C /* LICENSE */,
+				F731B47E13293AAB00CD3C7C /* TODO */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -571,6 +574,7 @@
 				F731B3F71329266D00CD3C7C /* AboutViewController-iPad.xib in Resources */,
 				F731B46D132936C400CD3C7C /* README in Resources */,
 				F731B46F132936E100CD3C7C /* LICENSE in Resources */,
+				F731B47F13293AAB00CD3C7C /* TODO in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
