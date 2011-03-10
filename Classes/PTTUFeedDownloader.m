@@ -19,8 +19,8 @@
     self = [super init];
     if (self) {
         // Custom initialization
-		stories = nil;
-		feedUrl = url;
+		self.stories = nil;
+		self.feedUrl = url;
     }
     return self;	
 }
@@ -38,7 +38,7 @@
 	
 	// Check for posts in feed
 	if (storiesCount == 0) {
-		NSLog(@"No stories in feed: %@", feedUrl);
+		NSLog(@"No stories in feed: %@", self.feedUrl);
 		[pttuFeed release];
 		[self performSelectorOnMainThread:@selector(backgroundFeedFinished) withObject:nil waitUntilDone:YES];
 		[pool release];
@@ -59,10 +59,7 @@
 	*/
 	
 	// Update posts array
-	if (stories) {
-		[stories release];
-	}
-	stories = [[NSMutableArray alloc] initWithArray:pttuFeed.stories];
+	self.stories = [[NSMutableArray alloc] initWithArray:pttuFeed.stories];
 
 	/*
 	// Update lastDate with the most recent story's date
@@ -70,7 +67,7 @@
 	lastDate = [[NSString alloc] initWithString:[[posts objectAtIndex:0] objectForKey:@"date"]];
 	*/
 	
-	NSLog(@"Did Load: Posts count %d", [stories count]);
+	NSLog(@"Did Load: Posts count %d", [self.stories count]);
 	
 	[pttuFeed release];
 	
@@ -80,8 +77,8 @@
 	
 	// Download images
 	NSUInteger n;
-	for (n = 0; n < [stories count]; n++) {
-		NSDictionary *item = [stories objectAtIndex:n];
+	for (n = 0; n < [self.stories count]; n++) {
+		NSDictionary *item = [self.stories objectAtIndex:n];
 		NSMutableDictionary *post = [[NSMutableDictionary alloc] initWithDictionary:item];
 		NSString *type = [item objectForKey:@"enclosureType"];
 		NSLog(@"enclosure type: %@", type);
@@ -94,7 +91,7 @@
 			if (currentImage) [post setObject:currentImage forKey:@"imageFile"];
 		}
 		// Replace
-		[stories replaceObjectAtIndex:n withObject:post];
+		[self.stories replaceObjectAtIndex:n withObject:post];
 		// Update table view to show image
 		[self performSelectorOnMainThread:@selector(backgroundImageFinished:) withObject:[NSNumber numberWithInt:n] waitUntilDone:NO];
 		[post release];
@@ -107,15 +104,15 @@
 
 - (void)backgroundFeedDownloaded {
 	// Feed downloaded (but will continue downloading images)
-	if ([[self delegate] respondsToSelector:@selector(feedDownloaderDidFinish:)]) {
-		[[self delegate] feedDownloaderDidFinish:self];
+	if (self.delegate && [self.delegate respondsToSelector:@selector(feedDownloaderDidFinish:)]) {
+		[self.delegate feedDownloaderDidFinish:self];
 	}
 }
 
 - (void)backgroundImageFinished:(NSNumber *)row {
 	// Image downloaded
-	if ([[self delegate] respondsToSelector:@selector(feedDownloaderDidFinish:)]) {
-		[[self delegate] feedDownloaderImageDidFinish:self postIndex:row];
+	if (self.delegate && [self.delegate respondsToSelector:@selector(feedDownloaderDidFinish:)]) {
+		[self.delegate feedDownloaderImageDidFinish:self postIndex:row];
 	}
 }
 

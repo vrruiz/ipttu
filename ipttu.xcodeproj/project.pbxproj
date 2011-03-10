@@ -20,6 +20,8 @@
 		F726EEBC122F2A6300F8FE0D /* icon-feed.png in Resources */ = {isa = PBXBuildFile; fileRef = F726EEBB122F2A6300F8FE0D /* icon-feed.png */; };
 		F726EEBF122F2AAF00F8FE0D /* icon-info.png in Resources */ = {isa = PBXBuildFile; fileRef = F726EEBE122F2AAF00F8FE0D /* icon-info.png */; };
 		F726F3621232838300F8FE0D /* NSDataExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = F726F3611232838300F8FE0D /* NSDataExtras.m */; };
+		F731B3701328FCCC00CD3C7C /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = F731B36F1328FCCC00CD3C7C /* Default-Portrait.png */; };
+		F731B3721328FCD400CD3C7C /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = F731B3711328FCD400CD3C7C /* Default-Landscape.png */; };
 		F73332B012526DFA00B7B92C /* FeaturedNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = F73332AF12526DFA00B7B92C /* FeaturedNavController.m */; };
 		F733358C1255D6C200B7B92C /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F733357A1255D6C200B7B92C /* NSCharacterSet_Extensions.m */; };
 		F733358D1255D6C200B7B92C /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F733357C1255D6C200B7B92C /* CDataScanner_Extensions.m */; };
@@ -99,6 +101,8 @@
 		F726EEBE122F2AAF00F8FE0D /* icon-info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-info.png"; sourceTree = "<group>"; };
 		F726F3601232838300F8FE0D /* NSDataExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataExtras.h; sourceTree = "<group>"; };
 		F726F3611232838300F8FE0D /* NSDataExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataExtras.m; sourceTree = "<group>"; };
+		F731B36F1328FCCC00CD3C7C /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
+		F731B3711328FCD400CD3C7C /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
 		F73332AE12526DFA00B7B92C /* FeaturedNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedNavController.h; sourceTree = "<group>"; };
 		F73332AF12526DFA00B7B92C /* FeaturedNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedNavController.m; sourceTree = "<group>"; };
 		F73335791255D6C200B7B92C /* NSCharacterSet_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCharacterSet_Extensions.h; sourceTree = "<group>"; };
@@ -255,6 +259,8 @@
 				75E754B0125CD7940098B225 /* Icon@2x.png */,
 				75E75494125CD4F60098B225 /* Default@2x.png */,
 				F79305B4122E79F40000CDEC /* Default.png */,
+				F731B3711328FCD400CD3C7C /* Default-Landscape.png */,
+				F731B36F1328FCCC00CD3C7C /* Default-Portrait.png */,
 				F7AEEB73126CB527008C9004 /* logo-about-linotipo.png */,
 				F7AEEB90126CB5EC008C9004 /* logo-about-esa.png */,
 				F7AEEB91126CB5EC008C9004 /* logo-about-eso.png */,
@@ -547,6 +553,8 @@
 				F7E38C86131E8A7C00211273 /* FeaturedNavController.xib in Resources */,
 				F7E38CA7131E927800211273 /* icon-black-back.png in Resources */,
 				F7E38CA8131E927800211273 /* icon-black-down.png in Resources */,
+				F731B3701328FCCC00CD3C7C /* Default-Portrait.png in Resources */,
+				F731B3721328FCD400CD3C7C /* Default-Landscape.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

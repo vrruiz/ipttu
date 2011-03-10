@@ -16,7 +16,7 @@
 
 - (id) init {
 	if (self = [super init]) {
-		stories = [[NSMutableArray alloc] init];
+		self.stories = [[NSMutableArray alloc] init];
 	}
 	
 	return self;
@@ -110,7 +110,7 @@
 		[item setObject:currentEnclosure forKey:@"enclosure"];
 		[item setObject:currentEnclosureType forKey:@"enclosureType"];
 		if (currentLinkImage) [item setObject:currentLinkImage forKey:@"linkImage"];
-		[stories addObject:item];
+		[self.stories addObject:item];
 		NSLog(@"Parser. Adding story: %@", currentTitle);
 
 		// Release

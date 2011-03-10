@@ -21,6 +21,7 @@
 @synthesize buttonSection;
 @synthesize labelSection;
 @synthesize webViewController;
+@synthesize stories;
 @synthesize news;
 @synthesize posts;
 @synthesize postViewDict;
@@ -56,6 +57,7 @@
 	NewsView *newsView = [[[NewsView alloc] initWithFrame:rect
 												   title:[post objectForKey:@"title"]
 												 creator:[post objectForKey:@"dc:creator"]
+													date:[post objectForKey:@"date"]
 												 summary:[post objectForKey:@"summary"]
 													 url:[post objectForKey:@"link"]
 												   image:image
@@ -64,7 +66,7 @@
 		// Set delegate
 		newsView.delegate = self;
 		// Save post <-> view reference dictionary
-		[postViewDict setObject:newsView forKey:[NSNumber numberWithInteger:storyIndex]];
+		[self.postViewDict setObject:newsView forKey:[NSNumber numberWithInteger:storyIndex]];
 	}
 	// Autoincrement story index
 	storyIndex++;
@@ -92,7 +94,7 @@
 	CGFloat margin = 20.0; // Margin between news
 	
 	// Set size
-	CGRect rectNewsPage = scrollView.frame;
+	CGRect rectNewsPage = self.scrollView.frame;
 	rectNewsPage.origin.x = 0;
 	rectNewsPage.origin.y = 0;
 
@@ -100,8 +102,8 @@
 	UIView *newsPage = [[[UIView alloc] initWithFrame:rectNewsPage] autorelease];
 	
 	// Create news view
-	CGFloat w = scrollView.frame.size.width;
-	CGFloat h = scrollView.frame.size.height;
+	CGFloat w = self.scrollView.frame.size.width;
+	CGFloat h = self.scrollView.frame.size.height;
 	
 	// Random seed
 	int static style = 0; // arc4random() % 2;
@@ -319,60 +321,60 @@
 	// Create scroll view
 	
 	// Remove current scroll view
-	CGRect rectScroll = scrollView.frame;
-	UIViewAutoresizing autoresizingMask = scrollView.autoresizingMask;
-	[scrollView removeFromSuperview];
+	CGRect rectScroll = self.scrollView.frame;
+	UIViewAutoresizing autoresizingMask = self.scrollView.autoresizingMask;
+	[self.scrollView removeFromSuperview];
 	
 	// Create new scroll view
-	scrollView = [[UIScrollView alloc] initWithFrame:rectScroll];
-	scrollView.delegate = self;
-	scrollView.pagingEnabled = YES;
-	scrollView.showsHorizontalScrollIndicator = NO;
-	scrollView.showsVerticalScrollIndicator = NO;
-	scrollView.alpha = 0.0;
-	scrollView.autoresizingMask = autoresizingMask;
-	[self.view addSubview:scrollView];
+	self.scrollView = [[UIScrollView alloc] initWithFrame:rectScroll];
+	self.scrollView.delegate = self;
+	self.scrollView.pagingEnabled = YES;
+	self.scrollView.showsHorizontalScrollIndicator = NO;
+	self.scrollView.showsVerticalScrollIndicator = NO;
+	self.scrollView.alpha = 0.0;
+	self.scrollView.autoresizingMask = autoresizingMask;
+	[self.view addSubview:self.scrollView];
 	
-	stories = feed.stories;
+	self.stories = feed.stories;
 	storyIndex = 0;
 	
-	if ([stories count] == 0) return;
-	NSMutableDictionary *post = [stories objectAtIndex:0];
-	labelDate.text = [post objectForKey:@"date"];
+	if ([self.stories count] == 0) return;
+	NSMutableDictionary *post = [self.stories objectAtIndex:0];
+	self.labelDate.text = [post objectForKey:@"date"];
 	
-	int numPages = [stories count] / POSTS_PER_PAGE;
+	int numPages = [self.stories count] / POSTS_PER_PAGE;
 	if (numPages > MAX_PAGES) numPages = MAX_PAGES; // Limit the number of pages
 	
 	// Create pages
-	CGSize sizeScroll = scrollView.frame.size;
+	CGSize sizeScroll = self.scrollView.frame.size;
 	sizeScroll.width *= numPages;
-	scrollView.contentSize = sizeScroll;
+	self.scrollView.contentSize = sizeScroll;
 	
 	for (int i = 0; i < numPages; i++) {
 		UIView *page = [self createNewsPage];
 		CGRect rect = page.frame;
-		rect.origin.x = scrollView.frame.size.width * i;
+		rect.origin.x = self.scrollView.frame.size.width * i;
 		page.frame = rect;
-		[scrollView addSubview:page];
+		[self.scrollView addSubview:page];
 	}
 	
 	// Page control settings
-	pageControl.alpha = 0.0;
-	pageControl.numberOfPages = numPages;
-	pageControl.currentPage = 0;
+	self.pageControl.alpha = 0.0;
+	self.pageControl.numberOfPages = numPages;
+	self.pageControl.currentPage = 0;
 	
 	// Move to current page
 	if (page > 0 && page < numPages) {
-		pageControl.currentPage = page;
-		CGPoint scrollOffset = scrollView.contentOffset;
-		scrollOffset.x = scrollView.frame.size.width * page;
-		scrollView.contentOffset = scrollOffset;
+		self.pageControl.currentPage = page;
+		CGPoint scrollOffset = self.scrollView.contentOffset;
+		scrollOffset.x = self.scrollView.frame.size.width * page;
+		self.scrollView.contentOffset = scrollOffset;
 	}
 
 	// Scroll view transition from alpha 0.0 to 1.0
 	[UIView animateWithDuration:0.75 animations:^{
-		scrollView.alpha = 1.0;
-		pageControl.alpha = 1.0;
+		self.scrollView.alpha = 1.0;
+		self.pageControl.alpha = 1.0;
 	}
 					 completion:^(BOOL finished){}];
 
@@ -388,21 +390,21 @@
     [super viewDidLoad];
 	
 	// Init
-	postViewDict = [[NSMutableDictionary alloc] init];
+	self.postViewDict = [[NSMutableDictionary alloc] init];
 	
 	// Sets page control dot colors
-	pageControl.backgroundColor = [UIColor clearColor];
-	pageControl.dotColorCurrentPage = [UIColor blackColor];
-	pageControl.dotColorOtherPage = [UIColor lightGrayColor];
+	self.pageControl.backgroundColor = [UIColor clearColor];
+	self.pageControl.dotColorCurrentPage = [UIColor blackColor];
+	self.pageControl.dotColorOtherPage = [UIColor lightGrayColor];
 	
 	// Download the feeds
-	news = [[PTTUFeedDownloader alloc] initWithUrl:@"http://www.portaltotheuniverse.org/rss/news/featured/"];
-	news.delegate = self;
-	[news startDownloading];
+	self.news = [[PTTUFeedDownloader alloc] initWithUrl:@"http://www.portaltotheuniverse.org/rss/news/featured/"];
+	self.news.delegate = self;
+	[self.news startDownloading];
 	
-	posts = [[PTTUFeedDownloader alloc] initWithUrl:@"http://www.portaltotheuniverse.org/rss/blogs/posts/featured/"];
-	posts.delegate = self;
-	[posts startDownloading];
+	self.posts = [[PTTUFeedDownloader alloc] initWithUrl:@"http://www.portaltotheuniverse.org/rss/blogs/posts/featured/"];
+	self.posts.delegate = self;
+	[self.posts startDownloading];
 	
 	// Active section = Featured news
 	feedActive = news;
@@ -419,7 +421,7 @@
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
 	// Resize scroll view content size
-	[self newsShowWithFeed:feedActive page:pageControl.currentPage];
+	[self newsShowWithFeed:feedActive page:self.pageControl.currentPage];
 }
 
 
@@ -439,10 +441,10 @@
 - (void)feedDownloaderImageDidFinish:(PTTUFeedDownloader *)feedDownloader postIndex:(NSNumber *)index {
 	// Image downloaded. Update view.
 	if (feedActive != feedDownloader) return; // No need to refresh the view.
-	NewsView *newsView = [postViewDict objectForKey:index];
+	NewsView *newsView = [self.postViewDict objectForKey:index];
 	if (newsView) {
 		// Read image data from dictionary
-		NSData *data = [[stories objectAtIndex:[index intValue]] objectForKey:@"imageFile"];
+		NSData *data = [[self.stories objectAtIndex:[index intValue]] objectForKey:@"imageFile"];
 		// Set image
 		newsView.image = [UIImage imageWithData:data];
 	}
@@ -458,7 +460,7 @@
 	
 	NSInteger lowerNumber = floor(fractionalPage);
 	// NSInteger upperNumber = lowerNumber + 1;
-	pageControl.currentPage = lowerNumber;
+	self.pageControl.currentPage = lowerNumber;
 }
 
 
@@ -467,17 +469,17 @@
 
 - (void)dismissWebView:(id)sender {
 	// Back from WebViewController. Close and release memory.
-	[webViewController dismissModalViewControllerAnimated:YES];
-	[webViewController release];
-	webViewController = nil;
+	[self.webViewController dismissModalViewControllerAnimated:YES];
+	[self.webViewController release];
+	self.webViewController = nil;
 }
 
 - (void)newsViewDidTouch:(NewsView *)newsView {
 	// NewsView touched. Open WebViewController;
-	webViewController = [[WebViewController alloc] initWithNibName:@"WebViewController-iPad" bundle:nil url:newsView.url];
-	[self presentModalViewController:webViewController animated:YES];
+	self.webViewController = [[WebViewController alloc] initWithNibName:@"WebViewController-iPad" bundle:nil url:newsView.url];
+	[self presentModalViewController:self.webViewController animated:YES];
 	// Hook "back" button to dismissWebView action
-	[webViewController.buttonDismiss addTarget:self action:@selector(dismissWebView:) forControlEvents:UIControlEventTouchUpInside];
+	[self.webViewController.buttonDismiss addTarget:self action:@selector(dismissWebView:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
@@ -491,7 +493,8 @@
 													cancelButtonTitle:@"Cancel"
 												destructiveButtonTitle:nil
 													otherButtonTitles:@"Featured News", @"Featured Blogs", nil] autorelease];
-	[actionSheet showFromRect:labelSection.frame inView:self.view animated:YES];
+	[actionSheet showFromRect:self.labelSection.frame inView:self.view animated:YES];
+	[actionSheet release];
 }
 
 
@@ -504,11 +507,11 @@
 	switch (buttonIndex) {
 		case 0:
 			// Featured News
-			switchTo = news;
+			switchTo = self.news;
 			break;
 		case 1:
 			// Featured Posts
-			switchTo = posts;
+			switchTo = self.posts;
 			break;
 		default:
 			// Cancel
@@ -520,7 +523,7 @@
 	
 	// Switch to new section
 	feedActive = switchTo;
-	labelSection.text = [actionSheet buttonTitleAtIndex:buttonIndex];
+	self.labelSection.text = [actionSheet buttonTitleAtIndex:buttonIndex];
 	// Update scroll view. Lengthy proccess, so perform after closing the action sheet.
 	[self performSelector:@selector(newsShowWithFeed:) withObject:feedActive afterDelay:0.01];
 }
@@ -546,6 +549,7 @@
 - (void)dealloc {
 	if (webViewController) [webViewController release];
 	[postViewDict release];
+	[stories release];
 	[news release];
 	[posts release];
 	[buttonSection release];

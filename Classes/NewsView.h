@@ -27,11 +27,13 @@ typedef enum {
 	NewsViewMode mode;
 	UILabel *labelTitle;
 	UILabel *labelCreator;
+	UILabel *labelDate;
 	UILabel *labelSummary;
 	UIImageView *imageView;
 	UIActivityIndicatorView *activityIndicatorView;
 	NSString *title;
 	NSString *creator;
+	NSString *date;
 	NSString *summary;
 	NSString *url;
 	UIImage *image;
@@ -41,16 +43,18 @@ typedef enum {
 @property (nonatomic, assign) NewsViewMode mode;
 @property (nonatomic, retain) UILabel *labelTitle;
 @property (nonatomic, retain) UILabel *labelCreator;
+@property (nonatomic, retain) UILabel *labelDate;
 @property (nonatomic, retain) UILabel *labelSummary;
 @property (nonatomic, retain) UIImageView *imageView;
 @property (nonatomic, retain) UIActivityIndicatorView *activityIndicatorView;
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSString *creator;
+@property (nonatomic, retain) NSString *date;
 @property (nonatomic, retain) NSString *summary;
 @property (nonatomic, retain) NSString *url;
 @property (nonatomic, retain) UIImage *image;
 
-- (id)initWithFrame:(CGRect)frame title:(NSString *)_title creator:(NSString *)_creator summary:(NSString *)_summary url:(NSString *)_url image:(UIImage *)_image mode:(NewsViewMode)_mode;
+- (id)initWithFrame:(CGRect)frame title:(NSString *)_title creator:(NSString *)_creator date:(NSString*)_date summary:(NSString *)_summary url:(NSString *)_url image:(UIImage *)_image mode:(NewsViewMode)_mode;
 - (void)setImage:(UIImage*)_image;
 
 @end

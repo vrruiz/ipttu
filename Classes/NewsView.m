@@ -17,11 +17,13 @@
 @synthesize mode;
 @synthesize labelTitle;
 @synthesize labelCreator;
+@synthesize labelDate;
 @synthesize labelSummary;
 @synthesize imageView;
 @synthesize activityIndicatorView;
 @synthesize title;
 @synthesize creator;
+@synthesize date;
 @synthesize summary;
 @synthesize url;
 @synthesize image;
@@ -82,7 +84,7 @@
 	return newImage;
 }
 
-- (id)initWithFrame:(CGRect)frame title:(NSString *)_title creator:(NSString *)_creator summary:(NSString *)_summary url:(NSString *)_url image:(UIImage *)_image mode:(NewsViewMode)_mode {
+- (id)initWithFrame:(CGRect)frame title:(NSString *)_title creator:(NSString *)_creator date:(NSString*)_date summary:(NSString *)_summary url:(NSString *)_url image:(UIImage *)_image mode:(NewsViewMode)_mode {
 	// Creates a news view (image, source, text, arranged with mode)
 	
     self = [super initWithFrame:frame];
@@ -91,12 +93,13 @@
 		self.userInteractionEnabled = YES; // Detect touches
 
 		// Set content
-		mode = _mode;
-		title = _title;
-		creator = _creator;
-		summary = _summary;
-		url = _url;
-		image = _image;
+		self.mode = _mode;
+		self.title = _title;
+		self.creator = _creator;
+		self.date = _date;
+		self.summary = _summary;
+		self.url = _url;
+		self.image = _image;
 		
 		// Origin
 		long padding = PADDING; 
@@ -114,9 +117,9 @@
 		[self addSubview:newsView];
 		
 		// Create image
-		if (mode == NewsViewModeImageUpBig || mode == NewsViewModeImageUpSmall) {
+		if (self.mode == NewsViewModeImageUpBig || self.mode == NewsViewModeImageUpSmall) {
 			long height;
-			switch (mode) {
+			switch (self.mode) {
 				case NewsViewModeImageUpBig:
 					// Image big
 					height = newsView.frame.size.height / 2;
@@ -129,90 +132,120 @@
 			}
 			// If image is not nil, the create the view
 			CGRect rectImage = CGRectMake(orig_x, orig_y, newsView.frame.size.width, height);
-			imageView = [[UIImageView alloc] initWithFrame:rectImage];
-			imageView.frame = rectImage;
-			if (image) {
+			self.imageView = [[UIImageView alloc] initWithFrame:rectImage];
+			self.imageView.frame = rectImage;
+			if (self.image) {
 				// Set image
-				imageView.image = [self imageByScalingAndCroppingForSize:image targetSize:rectImage.size];
+				self.imageView.image = [self imageByScalingAndCroppingForSize:self.image targetSize:rectImage.size];
 			} else {
 				// Show activity indicator
-				activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-				[activityIndicatorView setCenter:CGPointMake(rectImage.size.width / 2.0, rectImage.size.height / 2.0)];
-				[imageView addSubview:activityIndicatorView];
-				[activityIndicatorView startAnimating];
+				self.imageView.image = [self imageByScalingAndCroppingForSize:[UIImage imageNamed:@"Default-Landscape.png"] targetSize:rectImage.size];
+				self.imageView.alpha = 0.30;
+				self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+				[self.activityIndicatorView setCenter:CGPointMake(rectImage.size.width / 2.0, rectImage.size.height / 2.0)];
+				[self.imageView addSubview:self.activityIndicatorView];
+				[self.activityIndicatorView startAnimating];
 			}
 			// Add subview
-			[newsView addSubview:imageView];
-			orig_y = imageView.frame.origin.x + imageView.frame.size.height + padding;
+			[newsView addSubview:self.imageView];
+			orig_y = self.imageView.frame.origin.x + self.imageView.frame.size.height + padding;
 			// [imageView release];
 		}
 		
 		// Create title
 		CGRect rectLabel = CGRectMake(orig_x, orig_y, newsView.frame.size.width, 80);
-		labelTitle = [[UILabel alloc] initWithFrame:rectLabel];
-		labelTitle.font = [UIFont fontWithName:@"Palatino-Bold" size:28.0];
-		labelTitle.lineBreakMode = UILineBreakModeWordWrap;
-		labelTitle.numberOfLines = 2;
-		labelTitle.backgroundColor = [UIColor clearColor];
-		labelTitle.text = title;
+		self.labelTitle = [[UILabel alloc] initWithFrame:rectLabel];
+		self.labelTitle.font = [UIFont fontWithName:@"Helvetica" size:24.0];
+		self.labelTitle.lineBreakMode = UILineBreakModeWordWrap;
+		self.labelTitle.numberOfLines = 2;
+		self.labelTitle.backgroundColor = [UIColor clearColor];
+		self.labelTitle.text = self.title;
 		// Calculate title size
-		CGSize expectedLabelSize = [labelTitle.text sizeWithFont:labelTitle.font
-											   constrainedToSize:labelTitle.frame.size
+		CGSize expectedLabelSize = [self.labelTitle.text sizeWithFont:self.labelTitle.font
+											   constrainedToSize:self.labelTitle.frame.size
 												   lineBreakMode:UILineBreakModeWordWrap];
 		// Resize title
-		CGRect newFrame = labelTitle.frame;
+		CGRect newFrame = self.labelTitle.frame;
 		newFrame.size.height = expectedLabelSize.height;
-		labelTitle.frame = newFrame;
-		labelTitle.numberOfLines = 0;
-		[labelTitle sizeToFit];
+		self.labelTitle.frame = newFrame;
+		self.labelTitle.numberOfLines = 0;
+		[self.labelTitle sizeToFit];
 		// Add subview
-		[newsView addSubview:labelTitle];
+		[newsView addSubview:self.labelTitle];
+		orig_y = self.labelTitle.frame.origin.y + self.labelTitle.frame.size.height + padding;
 		
 		// Create source label
-		orig_y = labelTitle.frame.origin.y + labelTitle.frame.size.height + padding;
 		CGRect rectSource = CGRectMake(orig_x, orig_y, newsView.frame.size.width, 40);
-		labelCreator = [[UILabel alloc] initWithFrame:rectSource];
-		labelCreator.font = [UIFont fontWithName:@"Optima-Bold" size:16.0];
-		labelCreator.lineBreakMode = UILineBreakModeWordWrap;
-		labelCreator.numberOfLines = 0;
-		labelCreator.backgroundColor = [UIColor clearColor];
-		labelCreator.textColor = [UIColor blueColor];
-		labelCreator.text = creator;
+		self.labelCreator = [[UILabel alloc] initWithFrame:rectSource];
+		self.labelCreator.font = [UIFont fontWithName:@"Helvetica" size:14.0];
+		self.labelCreator.lineBreakMode = UILineBreakModeWordWrap;
+		self.labelCreator.numberOfLines = 0;
+		self.labelCreator.backgroundColor = [UIColor clearColor];
+		self.labelCreator.textColor = [UIColor colorWithRed:0.20 green:0.40 blue:0.60 alpha:1.0];;
+		self.labelCreator.text = self.creator;
 		// Calculate title size
-		expectedLabelSize = [labelCreator.text sizeWithFont:labelCreator.font
-										  constrainedToSize:labelCreator.frame.size
-											  lineBreakMode:UILineBreakModeWordWrap];
+		expectedLabelSize = [self.labelCreator.text sizeWithFont:self.labelCreator.font
+											   constrainedToSize:self.labelCreator.frame.size
+												   lineBreakMode:UILineBreakModeWordWrap];
 		// Resize source
-		newFrame = labelCreator.frame;
+		newFrame = self.labelCreator.frame;
 		newFrame.size.height = expectedLabelSize.height;
-		labelCreator.frame = newFrame;
-		labelCreator.numberOfLines = 0;
-		[labelCreator sizeToFit];
+		self.labelCreator.frame = newFrame;
+		self.labelCreator.numberOfLines = 0;
+		[self.labelCreator sizeToFit];
 		// Add subview
-		[newsView addSubview:labelCreator];
-		orig_y = labelCreator.frame.origin.y + labelCreator.frame.size.height + padding;
+		[newsView addSubview:self.labelCreator];
+		orig_y = self.labelCreator.frame.origin.y + self.labelCreator.frame.size.height + padding;
+		
+		// Create date label
+		if (self.date) {
+			CGRect rectSource = CGRectMake(orig_x, orig_y, newsView.frame.size.width, 40);
+			self.labelDate = [[UILabel alloc] initWithFrame:rectSource];
+			self.labelDate.font = [UIFont fontWithName:@"Helvetica" size:12.0];
+			self.labelDate.lineBreakMode = UILineBreakModeWordWrap;
+			self.labelDate.numberOfLines = 0;
+			self.labelDate.backgroundColor = [UIColor clearColor];
+			self.labelDate.textColor = [UIColor lightGrayColor];
+			self.labelDate.text = self.date;
+			// Calculate title size
+			expectedLabelSize = [self.labelDate.text sizeWithFont:self.labelDate.font
+												constrainedToSize:self.labelDate.frame.size
+													lineBreakMode:UILineBreakModeWordWrap];
+			// Resize source
+			newFrame = self.labelDate.frame;
+			newFrame.size.height = expectedLabelSize.height;
+			self.labelDate.frame = newFrame;
+			self.labelDate.numberOfLines = 0;
+			[self.labelDate sizeToFit];
+			// Add subview
+			[newsView addSubview:self.labelDate];
+			orig_y = self.labelDate.frame.origin.y + self.labelDate.frame.size.height + padding;
+		}
 		
 		// Create image view if image next to text
 		CGFloat source_width = newsView.frame.size.width;
 		// Image next to text
-		if (mode == NewsViewModeImageDown) {
+		if (self.mode == NewsViewModeImageDown) {
 			// Create image view
 			CGRect rectImage = CGRectMake(newsView.frame.size.width / 2 + padding * 2, orig_y, newsView.frame.size.width - (newsView.frame.size.width / 2 + padding * 2), newsView.frame.size.height - orig_y);
-			imageView = [[UIImageView alloc] initWithFrame:rectImage];
-			imageView.frame = rectImage;
-			if (image) {
+			self.imageView = [[UIImageView alloc] initWithFrame:rectImage];
+			self.imageView.frame = rectImage;
+			if (self.image) {
 				// Set image
-				imageView.image = [self imageByScalingAndCroppingForSize:image targetSize:rectImage.size];
+				self.imageView.image = [self imageByScalingAndCroppingForSize:self.image targetSize:rectImage.size];
 			} else {
 				// Show activity indicator
-				activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-				activityIndicatorView.hidesWhenStopped = YES;
-				[activityIndicatorView setCenter:CGPointMake(rectImage.size.width / 2.0, rectImage.size.height / 2.0)];
-				[imageView addSubview:activityIndicatorView];
-				[activityIndicatorView startAnimating];
+				self.imageView.image = [self imageByScalingAndCroppingForSize:[UIImage imageNamed:@"Default-Landscape.png"]
+																   targetSize:rectImage.size];
+				self.imageView.alpha = 0.30;
+				self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+				self.activityIndicatorView.hidesWhenStopped = YES;
+				[self.activityIndicatorView setCenter:CGPointMake(rectImage.size.width / 2.0, rectImage.size.height / 2.0)];
+				[self.imageView addSubview:activityIndicatorView];
+				[self.activityIndicatorView startAnimating];
 			}
 			// Add subview
-			[newsView addSubview:imageView];
+			[newsView addSubview:self.imageView];
 			// [imageView release];
 			
 			source_width = newsView.frame.size.width / 2 - padding * 2;
@@ -220,24 +253,24 @@
 		
 		// Create text
 		CGRect rectText = CGRectMake(orig_x, orig_y, source_width, newsView.frame.size.height - orig_y);
-		labelSummary = [[UILabel alloc] initWithFrame:rectText];
-		labelSummary.font = [UIFont fontWithName:@"Times New Roman" size:16.0];
-		labelSummary.lineBreakMode = UILineBreakModeTailTruncation;
-		labelSummary.numberOfLines = 0;
-		labelSummary.backgroundColor = [UIColor clearColor];
-		labelSummary.text = summary;
+		self.labelSummary = [[UILabel alloc] initWithFrame:rectText];
+		self.labelSummary.font = [UIFont fontWithName:@"Helvetica" size:16.0];
+		self.labelSummary.lineBreakMode = UILineBreakModeTailTruncation;
+		self.labelSummary.numberOfLines = 0;
+		self.labelSummary.backgroundColor = [UIColor clearColor];
+		self.labelSummary.text = self.summary;
 		// Calculate text size
-		expectedLabelSize = [labelSummary.text sizeWithFont:labelSummary.font
-										  constrainedToSize:labelSummary.frame.size
-										   lineBreakMode:UILineBreakModeTailTruncation];
+		expectedLabelSize = [self.labelSummary.text sizeWithFont:self.labelSummary.font
+											   constrainedToSize:self.labelSummary.frame.size
+												   lineBreakMode:UILineBreakModeTailTruncation];
 		// Resize text
-		newFrame = labelSummary.frame;
+		newFrame = self.labelSummary.frame;
 		newFrame.size.height = expectedLabelSize.height;
-		labelSummary.frame = newFrame;
-		labelSummary.numberOfLines = 0;
+		self.labelSummary.frame = newFrame;
+		self.labelSummary.numberOfLines = 0;
 		// [labelText sizeToFit];
 		// Add subview
-		[newsView addSubview:labelSummary];
+		[newsView addSubview:self.labelSummary];
 		
 		[newsView release];
 	}
@@ -246,24 +279,26 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event  {
 	// Action through NewsScrollView 
-	if (delegate && [delegate respondsToSelector:@selector(newsViewDidTouch:)]) {
+	if (self.delegate && [self.delegate respondsToSelector:@selector(newsViewDidTouch:)]) {
 		// Alert (NewsController)
-		[delegate newsViewDidTouch:self];
+		[self.delegate newsViewDidTouch:self];
 	}
 }
 
 - (void)setImage:(UIImage*)_image {
 	// Sets the image (usually updates the image after it is downloaded)
-	if (activityIndicatorView) {
+	if (self.activityIndicatorView) {
 		// Stops the activity indicator
-		[activityIndicatorView stopAnimating];
+		[self.activityIndicatorView stopAnimating];
 	}
 	if (_image) {
-		image = _image;
-		imageView.image = [self imageByScalingAndCroppingForSize:_image targetSize:imageView.frame.size];
+		if (image) [image release];
+		image = [_image retain];
+		self.imageView.image = [self imageByScalingAndCroppingForSize:_image targetSize:self.imageView.frame.size];
+		self.imageView.alpha = 1.00;
 	}
 }
-
+ 
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -275,6 +310,7 @@
 	[activityIndicatorView release];
 	[imageView release];
 	[labelCreator release];
+	[labelDate release];
 	[labelSummary release];
 	[labelTitle release];
 	[title release];
