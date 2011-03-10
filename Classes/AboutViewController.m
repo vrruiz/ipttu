@@ -11,7 +11,9 @@
 
 @implementation AboutViewController
 
+@synthesize delegate;
 @synthesize webView;
+@synthesize buttonClose;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -36,13 +38,17 @@
 	webView.delegate = self;
 }
 
-/*
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		// On the iPad, support any orientation
+		return YES;
+	} else {
+		// On the iPhone, just portrait orientation
+	  return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	}
 }
-*/
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -59,8 +65,8 @@
 
 
 - (void)dealloc {
+	if (buttonClose) [buttonClose release];
 	[webView release];
-	
     [super dealloc];
 }
 
@@ -81,5 +87,15 @@
 	return YES;
 }
 
+#pragma mark -
+#pragma mark Actions
+
+- (IBAction)buttonCloseDidTouch:(id)sender {
+	// On the iPad, there is a navigation bar with a close button.
+	// Notify parent.
+	if (self.delegate && [self.delegate respondsToSelector:@selector(aboutViewControllerDidTouch:)]) {
+		[self.delegate aboutViewControllerDidTouch:self];
+	}
+}
 
 @end

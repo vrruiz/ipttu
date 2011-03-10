@@ -9,15 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "PTTUFeedDownloader.h"
 #import "NewsView.h"
+#import "AboutViewController.h"
 
 @class PageControl;
 @class WebViewController;
 
 @interface NewsController : UIViewController <UIScrollViewDelegate, PTTUFeedDownloaderDelegate,
-NewsViewDelegate, UIActionSheetDelegate> {
+NewsViewDelegate, UIActionSheetDelegate, AboutViewControllerDelegate> {
 	UIView *scrollSuperview;
 	UIScrollView *scrollView;
 	WebViewController *webViewController;
+	AboutViewController *aboutViewController;
 	PageControl *pageControl;
 	UILabel *labelDate;
 	UILabel *labelSection;
@@ -38,6 +40,7 @@ NewsViewDelegate, UIActionSheetDelegate> {
 @property (nonatomic, retain) IBOutlet UILabel *labelSection;
 @property (nonatomic, retain) IBOutlet UIButton *buttonSection;
 @property (nonatomic, retain) WebViewController *webViewController;
+@property (nonatomic, retain) AboutViewController *aboutViewController;
 @property (nonatomic, retain) NSMutableArray *stories;
 @property (nonatomic, retain) PTTUFeedDownloader *news;
 @property (nonatomic, retain) PTTUFeedDownloader *posts;

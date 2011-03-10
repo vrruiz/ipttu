@@ -7,6 +7,7 @@
 //
 
 #import "WebViewController.h"
+#import "AboutViewController.h"
 #import "PTTUFeedDownloader.h"
 #import "NewsView.h"
 #import "NewsController.h"
@@ -21,6 +22,7 @@
 @synthesize buttonSection;
 @synthesize labelSection;
 @synthesize webViewController;
+@synthesize aboutViewController;
 @synthesize stories;
 @synthesize news;
 @synthesize posts;
@@ -470,7 +472,7 @@
 - (void)dismissWebView:(id)sender {
 	// Back from WebViewController. Close and release memory.
 	[self.webViewController dismissModalViewControllerAnimated:YES];
-	[self.webViewController release];
+	// [webViewController release];
 	self.webViewController = nil;
 }
 
@@ -492,11 +494,20 @@
 															 delegate:self
 													cancelButtonTitle:@"Cancel"
 												destructiveButtonTitle:nil
-													otherButtonTitles:@"Featured News", @"Featured Blogs", nil] autorelease];
+													otherButtonTitles:@"Featured News", @"Featured Blogs", @"About", nil] autorelease];
 	[actionSheet showFromRect:self.labelSection.frame inView:self.view animated:YES];
-	[actionSheet release];
 }
 
+#pragma mark -
+#pragma mark NewsViewDelegate methods
+
+- (void)aboutViewControllerDidTouch:(AboutViewController *)_aboutViewController {
+	// Callback for AboutViewController close button
+	// Close and release memory.
+	NSLog(@"Hola");
+	[self.aboutViewController dismissModalViewControllerAnimated:YES];
+	self.aboutViewController = nil;
+}
 
 #pragma mark -
 #pragma mark UIActionSheetDelegate methods
@@ -508,24 +519,36 @@
 		case 0:
 			// Featured News
 			switchTo = self.news;
+			if (feedActive == switchTo) return; // Current section
+			// Switch to new section
+			feedActive = switchTo;
+			self.labelSection.text = [actionSheet buttonTitleAtIndex:buttonIndex];
+			// Update scroll view. Lengthy proccess, so perform after closing the action sheet.
+			[self performSelector:@selector(newsShowWithFeed:) withObject:feedActive afterDelay:0.0];
 			break;
 		case 1:
 			// Featured Posts
 			switchTo = self.posts;
+			if (feedActive == switchTo) return; // Current section
+			// Switch to new section
+			feedActive = switchTo;
+			self.labelSection.text = [actionSheet buttonTitleAtIndex:buttonIndex];
+			// Update scroll view. Lengthy proccess, so perform after closing the action sheet.
+			[self performSelector:@selector(newsShowWithFeed:) withObject:feedActive afterDelay:0.0];
 			break;
+		case 2:
+			// About view controller.
+			self.aboutViewController = [[AboutViewController alloc] initWithNibName:@"AboutViewController-iPad" bundle:nil];
+			self.aboutViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+			self.aboutViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+			self.aboutViewController.view.superview.frame = CGRectMake(0, 0, 600, 600);
+			self.aboutViewController.delegate = self;
+			[self presentModalViewController:self.aboutViewController animated:YES];
 		default:
 			// Cancel
 			return;
 			break;
 	}
-	
-	if (feedActive == switchTo) return; // Current section
-	
-	// Switch to new section
-	feedActive = switchTo;
-	self.labelSection.text = [actionSheet buttonTitleAtIndex:buttonIndex];
-	// Update scroll view. Lengthy proccess, so perform after closing the action sheet.
-	[self performSelector:@selector(newsShowWithFeed:) withObject:feedActive afterDelay:0.01];
 }
 
 #pragma mark -
@@ -548,6 +571,7 @@
 
 - (void)dealloc {
 	if (webViewController) [webViewController release];
+	if (aboutViewController) [aboutViewController release];
 	[postViewDict release];
 	[stories release];
 	[news release];

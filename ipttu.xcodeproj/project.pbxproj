@@ -22,6 +22,11 @@
 		F726F3621232838300F8FE0D /* NSDataExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = F726F3611232838300F8FE0D /* NSDataExtras.m */; };
 		F731B3701328FCCC00CD3C7C /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = F731B36F1328FCCC00CD3C7C /* Default-Portrait.png */; };
 		F731B3721328FCD400CD3C7C /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = F731B3711328FCD400CD3C7C /* Default-Landscape.png */; };
+		F731B3CA13290CFE00CD3C7C /* icon-white-down.png in Resources */ = {isa = PBXBuildFile; fileRef = F731B3C913290CFE00CD3C7C /* icon-white-down.png */; };
+		F731B3D31329140800CD3C7C /* header-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F731B3D21329140800CD3C7C /* header-logo.png */; };
+		F731B3F71329266D00CD3C7C /* AboutViewController-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F731B3F61329266C00CD3C7C /* AboutViewController-iPad.xib */; };
+		F731B46D132936C400CD3C7C /* README in Resources */ = {isa = PBXBuildFile; fileRef = F731B46C132936C400CD3C7C /* README */; };
+		F731B46F132936E100CD3C7C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F731B46E132936E100CD3C7C /* LICENSE */; };
 		F73332B012526DFA00B7B92C /* FeaturedNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = F73332AF12526DFA00B7B92C /* FeaturedNavController.m */; };
 		F733358C1255D6C200B7B92C /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F733357A1255D6C200B7B92C /* NSCharacterSet_Extensions.m */; };
 		F733358D1255D6C200B7B92C /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F733357C1255D6C200B7B92C /* CDataScanner_Extensions.m */; };
@@ -74,7 +79,6 @@
 		F7E38C01131E81C900211273 /* PageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E38BFB131E81C900211273 /* PageControl.m */; };
 		F7E38C02131E81C900211273 /* NewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E38BFD131E81C900211273 /* NewsController.m */; };
 		F7E38C14131E82D300211273 /* NewsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7E38C13131E82D300211273 /* NewsController.xib */; };
-		F7E38C18131E831000211273 /* header_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E38C17131E831000211273 /* header_logo.png */; };
 		F7E38C39131E85C600211273 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7E38C38131E85C600211273 /* MainWindow-iPad.xib */; };
 		F7E38C83131E8A4900211273 /* WebViewController-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7E38C82131E8A4900211273 /* WebViewController-iPad.xib */; };
 		F7E38C86131E8A7C00211273 /* FeaturedNavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7E38C85131E8A7C00211273 /* FeaturedNavController.xib */; };
@@ -103,6 +107,11 @@
 		F726F3611232838300F8FE0D /* NSDataExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataExtras.m; sourceTree = "<group>"; };
 		F731B36F1328FCCC00CD3C7C /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
 		F731B3711328FCD400CD3C7C /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
+		F731B3C913290CFE00CD3C7C /* icon-white-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-white-down.png"; sourceTree = "<group>"; };
+		F731B3D21329140800CD3C7C /* header-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "header-logo.png"; sourceTree = "<group>"; };
+		F731B3F61329266C00CD3C7C /* AboutViewController-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "AboutViewController-iPad.xib"; path = "Classes/AboutViewController-iPad.xib"; sourceTree = "<group>"; };
+		F731B46C132936C400CD3C7C /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		F731B46E132936E100CD3C7C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		F73332AE12526DFA00B7B92C /* FeaturedNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedNavController.h; sourceTree = "<group>"; };
 		F73332AF12526DFA00B7B92C /* FeaturedNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedNavController.m; sourceTree = "<group>"; };
 		F73335791255D6C200B7B92C /* NSCharacterSet_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCharacterSet_Extensions.h; sourceTree = "<group>"; };
@@ -183,7 +192,6 @@
 		F7E38BFC131E81C900211273 /* NewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsController.h; sourceTree = "<group>"; };
 		F7E38BFD131E81C900211273 /* NewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsController.m; sourceTree = "<group>"; };
 		F7E38C13131E82D300211273 /* NewsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NewsController.xib; path = Classes/NewsController.xib; sourceTree = "<group>"; };
-		F7E38C17131E831000211273 /* header_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header_logo.png; sourceTree = "<group>"; };
 		F7E38C38131E85C600211273 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		F7E38C82131E8A4900211273 /* WebViewController-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "WebViewController-iPad.xib"; path = "Classes/WebViewController-iPad.xib"; sourceTree = "<group>"; };
 		F7E38C85131E8A7C00211273 /* FeaturedNavController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FeaturedNavController.xib; path = Classes/FeaturedNavController.xib; sourceTree = "<group>"; };
@@ -232,6 +240,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				F731B46C132936C400CD3C7C /* README */,
+				F731B46E132936E100CD3C7C /* LICENSE */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -357,8 +367,6 @@
 				F7D7FADE1259E95D00D58A28 /* SearchNavController.m */,
 				F73335A91255D72400B7B92C /* SearchViewController.h */,
 				F73335AA1255D72400B7B92C /* SearchViewController.m */,
-				F73A8EC3125E966D00ABDD8E /* AboutViewController.h */,
-				F73A8EC4125E966D00ABDD8E /* AboutViewController.m */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -372,6 +380,8 @@
 				F7E38BF2131E81BA00211273 /* PTTUFeedDownloader.m */,
 				F793046D122D64430000CDEC /* WebViewController.h */,
 				F793046E122D64430000CDEC /* WebViewController.m */,
+				F73A8EC3125E966D00ABDD8E /* AboutViewController.h */,
+				F73A8EC4125E966D00ABDD8E /* AboutViewController.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -397,6 +407,7 @@
 				F7E38C38131E85C600211273 /* MainWindow-iPad.xib */,
 				F7E38C82131E8A4900211273 /* WebViewController-iPad.xib */,
 				F7E38C13131E82D300211273 /* NewsController.xib */,
+				F731B3F61329266C00CD3C7C /* AboutViewController-iPad.xib */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -449,9 +460,10 @@
 		F7E38C53131E874A00211273 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				F731B3C913290CFE00CD3C7C /* icon-white-down.png */,
 				F7E38CA5131E927800211273 /* icon-black-back.png */,
 				F7E38CA6131E927800211273 /* icon-black-down.png */,
-				F7E38C17131E831000211273 /* header_logo.png */,
+				F731B3D21329140800CD3C7C /* header-logo.png */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -547,7 +559,6 @@
 				F7AEEB93126CB5EC008C9004 /* logo-about-eso.png in Resources */,
 				F7E38BB1131E7D2800211273 /* iPhoneViewController.xib in Resources */,
 				F7E38C14131E82D300211273 /* NewsController.xib in Resources */,
-				F7E38C18131E831000211273 /* header_logo.png in Resources */,
 				F7E38C39131E85C600211273 /* MainWindow-iPad.xib in Resources */,
 				F7E38C83131E8A4900211273 /* WebViewController-iPad.xib in Resources */,
 				F7E38C86131E8A7C00211273 /* FeaturedNavController.xib in Resources */,
@@ -555,6 +566,11 @@
 				F7E38CA8131E927800211273 /* icon-black-down.png in Resources */,
 				F731B3701328FCCC00CD3C7C /* Default-Portrait.png in Resources */,
 				F731B3721328FCD400CD3C7C /* Default-Landscape.png in Resources */,
+				F731B3CA13290CFE00CD3C7C /* icon-white-down.png in Resources */,
+				F731B3D31329140800CD3C7C /* header-logo.png in Resources */,
+				F731B3F71329266D00CD3C7C /* AboutViewController-iPad.xib in Resources */,
+				F731B46D132936C400CD3C7C /* README in Resources */,
+				F731B46F132936E100CD3C7C /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
