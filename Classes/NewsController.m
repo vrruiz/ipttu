@@ -159,7 +159,7 @@
 		[newsPage addSubview:viewHSep];
 		
 		// Vertical separator
-		CGRect rectVSeparator = CGRectMake(w / 2, h / 2 + margin, 1, h / 2 - margin);
+		CGRect rectVSeparator = CGRectMake(w / 2, h / 2, 1, h / 2);
 		UIView *viewVSep = [[[UIView alloc] initWithFrame:rectVSeparator] autorelease];
 		viewVSep.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
 		[newsPage addSubview:viewVSep];
