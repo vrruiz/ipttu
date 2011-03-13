@@ -16,6 +16,7 @@
 		750C459E125E2AD800AC12AF /* detail_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 750C459D125E2AD800AC12AF /* detail_bg.png */; };
 		75E75495125CD4F60098B225 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E75494125CD4F60098B225 /* Default@2x.png */; };
 		75E754B1125CD7940098B225 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E754B0125CD7940098B225 /* Icon@2x.png */; };
+		F717A550132D4D8400F7FCFD /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = F717A54F132D4D8400F7FCFD /* Icon-72.png */; };
 		F726EEB9122F251900F8FE0D /* icon-chat.png in Resources */ = {isa = PBXBuildFile; fileRef = F726EEB8122F251900F8FE0D /* icon-chat.png */; };
 		F726EEBC122F2A6300F8FE0D /* icon-feed.png in Resources */ = {isa = PBXBuildFile; fileRef = F726EEBB122F2A6300F8FE0D /* icon-feed.png */; };
 		F726EEBF122F2AAF00F8FE0D /* icon-info.png in Resources */ = {isa = PBXBuildFile; fileRef = F726EEBE122F2AAF00F8FE0D /* icon-info.png */; };
@@ -54,6 +55,8 @@
 		F73A8ECF125E999300ABDD8E /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = F73A8ECE125E999300ABDD8E /* about.html */; };
 		F73A8ED7125E9C3800ABDD8E /* icon-about.png in Resources */ = {isa = PBXBuildFile; fileRef = F73A8ED6125E9C3800ABDD8E /* icon-about.png */; };
 		F78AFE4512346A39002B1059 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F78AFE4412346A39002B1059 /* Icon.png */; };
+		F78F683D132A2D4200679CE2 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F78F683C132A2D4200679CE2 /* Default-Landscape~ipad.png */; };
+		F78F683F132A2D5300679CE2 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F78F683E132A2D5300679CE2 /* Default-Portrait~ipad.png */; };
 		F79303C2122D3E550000CDEC /* FeaturedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F79303C0122D3E550000CDEC /* FeaturedTableViewController.m */; };
 		F79303C3122D3E550000CDEC /* FeaturedTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F79303C1122D3E550000CDEC /* FeaturedTableViewController.xib */; };
 		F79303FB122D58350000CDEC /* EntitiesConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = F79303FA122D58350000CDEC /* EntitiesConverter.m */; };
@@ -101,6 +104,7 @@
 		75E75494125CD4F60098B225 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		75E754B0125CD7940098B225 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* ipttu-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ipttu-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		F717A54F132D4D8400F7FCFD /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		F726EEB8122F251900F8FE0D /* icon-chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-chat.png"; sourceTree = "<group>"; };
 		F726EEBB122F2A6300F8FE0D /* icon-feed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-feed.png"; sourceTree = "<group>"; };
 		F726EEBE122F2AAF00F8FE0D /* icon-info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-info.png"; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 		F73A8ECE125E999300ABDD8E /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		F73A8ED6125E9C3800ABDD8E /* icon-about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-about.png"; sourceTree = "<group>"; };
 		F78AFE4412346A39002B1059 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		F78F683C132A2D4200679CE2 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		F78F683E132A2D5300679CE2 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		F79303BF122D3E550000CDEC /* FeaturedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedTableViewController.h; sourceTree = "<group>"; };
 		F79303C0122D3E550000CDEC /* FeaturedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedTableViewController.m; sourceTree = "<group>"; };
 		F79303C1122D3E550000CDEC /* FeaturedTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FeaturedTableViewController.xib; path = Classes/FeaturedTableViewController.xib; sourceTree = "<group>"; };
@@ -270,8 +276,11 @@
 				F7E38C51131E871700211273 /* Icons */,
 				F78AFE4412346A39002B1059 /* Icon.png */,
 				75E754B0125CD7940098B225 /* Icon@2x.png */,
+				F717A54F132D4D8400F7FCFD /* Icon-72.png */,
 				75E75494125CD4F60098B225 /* Default@2x.png */,
 				F79305B4122E79F40000CDEC /* Default.png */,
+				F78F683E132A2D5300679CE2 /* Default-Portrait~ipad.png */,
+				F78F683C132A2D4200679CE2 /* Default-Landscape~ipad.png */,
 				F731B3711328FCD400CD3C7C /* Default-Landscape.png */,
 				F731B36F1328FCCC00CD3C7C /* Default-Portrait.png */,
 				F7AEEB73126CB527008C9004 /* logo-about-linotipo.png */,
@@ -575,6 +584,9 @@
 				F731B46D132936C400CD3C7C /* README in Resources */,
 				F731B46F132936E100CD3C7C /* LICENSE in Resources */,
 				F731B47F13293AAB00CD3C7C /* TODO in Resources */,
+				F78F683D132A2D4200679CE2 /* Default-Landscape~ipad.png in Resources */,
+				F78F683F132A2D5300679CE2 /* Default-Portrait~ipad.png in Resources */,
+				F717A550132D4D8400F7FCFD /* Icon-72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,11 +644,13 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ipttu_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "ipttu-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = ipttu;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				"VALID_ARCHS[sdk=iphonesimulator*]" = i386;
 			};
 			name = Debug;
 		};
@@ -649,12 +663,14 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ipttu_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "ipttu-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = ipttu;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				"VALID_ARCHS[sdk=iphoneos*]" = "armv6 armv7";
 			};
 			name = Release;
 		};
@@ -666,13 +682,14 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PREBINDING = NO;
 				PRODUCT_NAME = PTTUniverse;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				SDKROOT = iphoneos4.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "";
+				"VALID_ARCHS[sdk=iphoneos*]" = "armv6 armv7";
 			};
 			name = Debug;
 		};
@@ -680,17 +697,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ESO European Southern Observatory";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
 				PRODUCT_NAME = PTTUniverse;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "16FA4EBE-320B-4A46-BA02-9DF40C0DAE33";
+				SDKROOT = iphoneos4.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "";
 			};
 			name = Release;

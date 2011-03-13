@@ -15,7 +15,8 @@
 @synthesize stories;
 
 - (id) init {
-	if (self = [super init]) {
+    self = [super init];
+	if (self) {
 		self.stories = [[NSMutableArray alloc] init];
 	}
 	

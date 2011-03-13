@@ -329,7 +329,6 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	
     if (cell == nil) {
-		NSLog(@"");
 		// Load custom Cell View from XIB file
 		[[NSBundle mainBundle] loadNibNamed:@"tvCell" owner:self options:nil];
 		if (tvCell == nil) {

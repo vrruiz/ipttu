@@ -44,7 +44,8 @@
 }
 
 - (id)init {
-	if (self = [super init]) {
+    self = [super init];
+	if (self) {
 		// Default colors.
 		self.backgroundColor = [UIColor clearColor];
 		self.dotColorCurrentPage = [UIColor blackColor];

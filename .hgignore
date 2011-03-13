@@ -7,3 +7,5 @@ build
 *.pbxuser
 .LSOverride
 Classes/.DS_Store
+project.xcworkspace*
+xcuserdata*
