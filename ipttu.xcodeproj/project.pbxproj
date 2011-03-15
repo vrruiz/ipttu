@@ -16,6 +16,7 @@
 		750C459E125E2AD800AC12AF /* detail_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 750C459D125E2AD800AC12AF /* detail_bg.png */; };
 		75E75495125CD4F60098B225 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E75494125CD4F60098B225 /* Default@2x.png */; };
 		75E754B1125CD7940098B225 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E754B0125CD7940098B225 /* Icon@2x.png */; };
+		75F26F13132FC47500FF6A6C /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 75F26F12132FC47500FF6A6C /* iTunesArtwork */; };
 		F717A550132D4D8400F7FCFD /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = F717A54F132D4D8400F7FCFD /* Icon-72.png */; };
 		F726EEB9122F251900F8FE0D /* icon-chat.png in Resources */ = {isa = PBXBuildFile; fileRef = F726EEB8122F251900F8FE0D /* icon-chat.png */; };
 		F726EEBC122F2A6300F8FE0D /* icon-feed.png in Resources */ = {isa = PBXBuildFile; fileRef = F726EEBB122F2A6300F8FE0D /* icon-feed.png */; };
@@ -103,6 +104,7 @@
 		750C459D125E2AD800AC12AF /* detail_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detail_bg.png; sourceTree = "<group>"; };
 		75E75494125CD4F60098B225 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		75E754B0125CD7940098B225 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		75F26F12132FC47500FF6A6C /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* ipttu-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ipttu-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		F717A54F132D4D8400F7FCFD /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		F726EEB8122F251900F8FE0D /* icon-chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-chat.png"; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				F7AEEB91126CB5EC008C9004 /* logo-about-eso.png */,
 				8D1107310486CEB800E47090 /* ipttu-Info.plist */,
 				F73A8ECE125E999300ABDD8E /* about.html */,
+				75F26F12132FC47500FF6A6C /* iTunesArtwork */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				F78F683D132A2D4200679CE2 /* Default-Landscape~ipad.png in Resources */,
 				F78F683F132A2D5300679CE2 /* Default-Portrait~ipad.png in Resources */,
 				F717A550132D4D8400F7FCFD /* Icon-72.png in Resources */,
+				75F26F13132FC47500FF6A6C /* iTunesArtwork in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
