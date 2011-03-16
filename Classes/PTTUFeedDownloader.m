@@ -13,6 +13,7 @@
 
 @synthesize stories;
 @synthesize feedUrl;
+@synthesize lastUpdated;
 @synthesize delegate;
 
 - (id)initWithUrl:(NSString *)url {
@@ -21,6 +22,7 @@
         // Custom initialization
 		self.stories = nil;
 		self.feedUrl = url;
+        self.lastUpdated = nil;
     }
     return self;	
 }
@@ -125,6 +127,10 @@
 
 
 - (void)startDownloading {
+    if( self.lastUpdated != nil ) {
+        [self.lastUpdated release];
+    }
+    self.lastUpdated = [[NSDate alloc] init];
 	[NSThread detachNewThreadSelector:@selector(backgroundFeed) toTarget:self withObject:nil];
 }
 
@@ -135,6 +141,7 @@
 - (void)dealloc {
 	[feedUrl release];
 	[stories release];
+    [lastUpdated release];
 	[super dealloc];
 }
 

@@ -343,8 +343,13 @@
 	storyIndex = 0;
 	
 	if ([self.stories count] == 0) return;
-	NSMutableDictionary *post = [self.stories objectAtIndex:0];
-	self.labelDate.text = [post objectForKey:@"date"];
+
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"d MMM yyyy, HH:mm"];
+    NSString *lastUpdatedText = [format stringFromDate:feed.lastUpdated];
+    self.labelDate.text = lastUpdatedText;
+
+    [format release];
 	
 	int numPages = [self.stories count] / POSTS_PER_PAGE;
 	if (numPages > MAX_PAGES) numPages = MAX_PAGES; // Limit the number of pages

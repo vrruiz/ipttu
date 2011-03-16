@@ -20,10 +20,12 @@
 @interface PTTUFeedDownloader : NSObject {
 	NSMutableArray *stories;
 	NSString *feedUrl;
+    NSDate *lastUpdated;
 	id <PTTUFeedDownloaderDelegate> delegate;
 }
 
 @property (nonatomic, retain) NSMutableArray *stories;
+@property (nonatomic, retain) NSDate *lastUpdated;
 @property (nonatomic, retain) NSString *feedUrl;
 @property (nonatomic, assign) id <PTTUFeedDownloaderDelegate> delegate;
 
