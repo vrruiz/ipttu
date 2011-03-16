@@ -131,7 +131,7 @@
 - (void)backgroundFeedFinishedWithoutChanges {
 	// Feed downloaded without changes
 	if (self.delegate && [self.delegate respondsToSelector:@selector(feedDownloaderFeedDidFinishWithoutChanges:)]) {
-		[self.delegate feedDownloaderDidFinish:self];
+		[self.delegate feedDownloaderFeedDidFinishWithoutChanges:self];
 	}
 }
 
