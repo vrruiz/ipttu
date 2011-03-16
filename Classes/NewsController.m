@@ -31,6 +31,7 @@
 
 #define MAX_PAGES 6
 #define POSTS_PER_PAGE 3
+#define FEED_COUNT 2
 
 /*
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -399,6 +400,10 @@
 	self.pageControl.backgroundColor = [UIColor clearColor];
 	self.pageControl.dotColorCurrentPage = [UIColor blackColor];
 	self.pageControl.dotColorOtherPage = [UIColor lightGrayColor];
+    
+    // Start activity indicator
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES]; 
+    finishedDownloadsCount = 0;
 	
 	// Download the feeds
 	self.news = [[PTTUFeedDownloader alloc] initWithUrl:@"http://www.portaltotheuniverse.org/rss/news/featured/"];
@@ -431,14 +436,11 @@
 #pragma mark -
 #pragma mark PTTUFeedDownloaderDelegate methods
 
-- (void)feedDownloaderDidFinish:(PTTUFeedDownloader *)feedDownloader {
+- (void)feedDownloaderFeedDidFinish:(PTTUFeedDownloader *)feedDownloader {
 	// Feeds and images downloaded
-	NSLog(@"feedDownloaderDidFinish");
-	
-	if (feedActive != feedDownloader) return; // Feed downloaded, but not active
-	
-	// Show stories
-	[self newsShowWithFeed:feedDownloader];
+    
+    // Show stories
+	if (feedActive == feedDownloader) [self newsShowWithFeed:feedDownloader];
 }
 
 - (void)feedDownloaderImageDidFinish:(PTTUFeedDownloader *)feedDownloader postIndex:(NSNumber *)index {
@@ -452,6 +454,15 @@
 		newsView.image = [UIImage imageWithData:data];
 	}
 }
+
+- (void)feedDownloaderDidFinish:(PTTUFeedDownloader *)feedDownloader {
+    // Stop activity indicator
+    finishedDownloadsCount++;
+    if (finishedDownloadsCount == FEED_COUNT) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    }
+}
+
 
 #pragma mark -
 #pragma mark UIScrollViewDelegate methods

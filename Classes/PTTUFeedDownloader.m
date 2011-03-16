@@ -104,8 +104,8 @@
 
 - (void)backgroundFeedDownloaded {
 	// Feed downloaded (but will continue downloading images)
-	if (self.delegate && [self.delegate respondsToSelector:@selector(feedDownloaderDidFinish:)]) {
-		[self.delegate feedDownloaderDidFinish:self];
+	if (self.delegate && [self.delegate respondsToSelector:@selector(feedDownloaderFeedDidFinish:)]) {
+		[self.delegate feedDownloaderFeedDidFinish:self];
 	}
 }
 
@@ -117,9 +117,10 @@
 }
 
 - (void)backgroundFeedFinished {
-	NSLog(@"Background: Feed finished");
-	// Write images to file
-	// [self writeFeedToFile]; // Write stories --with images
+    // All images downloaded
+	if (self.delegate && [self.delegate respondsToSelector:@selector(feedDownloaderDidFinish:)]) {
+		[self.delegate feedDownloaderDidFinish:self];
+	}
 }
 
 
