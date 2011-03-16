@@ -47,18 +47,21 @@
 		return;
 	}
 
-	/*
 	// Compare lastDate with most recent story date
 	// to check whether the table data needs reloading
-	if (lastDate && [[[pttuFeed.stories objectAtIndex:0] objectForKey:@"date"] isEqualToString:lastDate]) {
-		// No need to update
-		NSLog(@"No need to update");
-		[pttuFeed release];
-		[self performSelectorOnMainThread:@selector(backgroundFeedFinished) withObject:nil waitUntilDone:YES];
-		[pool release];
-		return;
-	}
-	*/
+    if (self.stories) {
+        // Re-download support. Checks whether feed needs 
+        NSString *previousDate = [[self.stories objectAtIndex:0] objectForKey:@"date"];
+        NSString *currentDate = [[pttuFeed.stories objectAtIndex:0] objectForKey:@"date"]; 
+        if (previousDate && currentDate && [currentDate isEqualToString:previousDate]) {
+            // No need to update
+            NSLog(@"No need to update");
+            [pttuFeed release];
+            [self performSelectorOnMainThread:@selector(backgroundFeedFinishedWithoutChanges) withObject:nil waitUntilDone:YES];
+            [pool release];
+            return;
+        }
+    }
 	
 	// Update posts array
 	self.stories = [[NSMutableArray alloc] initWithArray:pttuFeed.stories];
@@ -125,12 +128,15 @@
 	}
 }
 
+- (void)backgroundFeedFinishedWithoutChanges {
+	// Feed downloaded without changes
+	if (self.delegate && [self.delegate respondsToSelector:@selector(feedDownloaderFeedDidFinishWithoutChanges:)]) {
+		[self.delegate feedDownloaderDidFinish:self];
+	}
+}
 
 - (void)startDownloading {
-    if( self.lastUpdated != nil ) {
-        [self.lastUpdated release];
-    }
-    self.lastUpdated = [[NSDate alloc] init];
+    self.lastUpdated = [[NSDate alloc] init]; // Store current date
 	[NSThread detachNewThreadSelector:@selector(backgroundFeed) toTarget:self withObject:nil];
 }
 

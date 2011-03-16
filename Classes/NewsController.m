@@ -321,6 +321,16 @@
 	return newsPage;
 }
 
+- (void)updateDateLabel:(NSDate *)lastUpdated {
+    // Set update date label
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"d MMM yyyy, HH:mm"];
+    NSString *lastUpdatedText = [format stringFromDate:lastUpdated];
+    self.labelDate.text = lastUpdatedText;
+    [format release];
+
+}
+
 - (void)newsShowWithFeed:(PTTUFeedDownloader *)feed page:(NSInteger)page {
 	// Create scroll view
 	
@@ -341,15 +351,11 @@
 	
 	self.stories = feed.stories;
 	storyIndex = 0;
-	
+    
+    [self updateDateLabel:feed.lastUpdated]; // Set display date
+    
 	if ([self.stories count] == 0) return;
 
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"d MMM yyyy, HH:mm"];
-    NSString *lastUpdatedText = [format stringFromDate:feed.lastUpdated];
-    self.labelDate.text = lastUpdatedText;
-
-    [format release];
 	
 	int numPages = [self.stories count] / POSTS_PER_PAGE;
 	if (numPages > MAX_PAGES) numPages = MAX_PAGES; // Limit the number of pages
@@ -393,6 +399,18 @@
 	[self newsShowWithFeed:feed page:0];
 }
 
+- (void)startDownloading {
+    
+    if (finishedDownloadsCount >= 0) return; // Already downloading
+
+    // Start activity indicator
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES]; 
+    finishedDownloadsCount = 0;
+    
+    // Download feeds
+	[self.news startDownloading];
+	[self.posts startDownloading];
+}
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
@@ -406,19 +424,17 @@
 	self.pageControl.dotColorCurrentPage = [UIColor blackColor];
 	self.pageControl.dotColorOtherPage = [UIColor lightGrayColor];
     
-    // Start activity indicator
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES]; 
-    finishedDownloadsCount = 0;
 	
 	// Download the feeds
 	self.news = [[PTTUFeedDownloader alloc] initWithUrl:@"http://www.portaltotheuniverse.org/rss/news/featured/"];
 	self.news.delegate = self;
-	[self.news startDownloading];
 	
 	self.posts = [[PTTUFeedDownloader alloc] initWithUrl:@"http://www.portaltotheuniverse.org/rss/blogs/posts/featured/"];
 	self.posts.delegate = self;
-	[self.posts startDownloading];
 	
+    finishedDownloadsCount = -1; // -1 == not active | 0 >= active
+    [self startDownloading];
+    
 	// Active section = Featured news
 	feedActive = news;
 }
@@ -445,7 +461,10 @@
 	// Feeds and images downloaded
     
     // Show stories
-	if (feedActive == feedDownloader) [self newsShowWithFeed:feedDownloader];
+	if (feedActive == feedDownloader) {
+        [self updateDateLabel:feedDownloader.lastUpdated]; // Set display date
+        [self newsShowWithFeed:feedDownloader];
+    }
 }
 
 - (void)feedDownloaderImageDidFinish:(PTTUFeedDownloader *)feedDownloader postIndex:(NSNumber *)index {
@@ -464,10 +483,19 @@
     // Stop activity indicator
     finishedDownloadsCount++;
     if (finishedDownloadsCount == FEED_COUNT) {
+        finishedDownloadsCount = -1; // -1 = Inactive
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     }
 }
 
+- (void)feedDownloaderFeedDidFinishWithoutChanges:(PTTUFeedDownloader *)feedDownloader {
+	// Feed finished without changes. Do nothing.
+	if (feedActive == feedDownloader) {
+        // Set display date
+        [self updateDateLabel:feedDownloader.lastUpdated];
+    }
+    [self feedDownloaderDidFinish:feedDownloader];
+}
 
 #pragma mark -
 #pragma mark UIScrollViewDelegate methods
@@ -511,7 +539,7 @@
 															 delegate:self
 													cancelButtonTitle:@"Cancel"
 												destructiveButtonTitle:nil
-													otherButtonTitles:@"News", @"Blogs", @"About", nil] autorelease];
+													otherButtonTitles:@"News", @"Blogs", @"Refresh", @"About", nil] autorelease];
 	[actionSheet showFromRect:self.viewButtonSection.frame inView:self.view animated:YES];
 }
 
@@ -552,7 +580,11 @@
 			// Update scroll view. Lengthy proccess, so perform after closing the action sheet.
 			[self performSelector:@selector(newsShowWithFeed:) withObject:feedActive afterDelay:0.0];
 			break;
-		case 2:
+        case 2:
+            // Reload feeds
+            [self startDownloading];
+            break;
+		case 3:
 			// About view controller.
 			self.aboutViewController = [[AboutViewController alloc] initWithNibName:@"AboutViewController-iPad" bundle:nil];
 			self.aboutViewController.modalPresentationStyle = UIModalPresentationFormSheet;

@@ -13,6 +13,7 @@
 @protocol PTTUFeedDownloaderDelegate <NSObject>
 @optional
 - (void)feedDownloaderFeedDidFinish:(PTTUFeedDownloader *)feedDownloader;
+- (void)feedDownloaderFeedDidFinishWithoutChanges:(PTTUFeedDownloader *)feedDownloader;
 - (void)feedDownloaderImageDidFinish:(PTTUFeedDownloader *)feedDownloader postIndex:(NSNumber *)index;
 - (void)feedDownloaderDidFinish:(PTTUFeedDownloader *)feedDownloader;
 @end
