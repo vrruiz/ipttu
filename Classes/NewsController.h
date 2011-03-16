@@ -50,5 +50,6 @@ NewsViewDelegate, UIActionSheetDelegate, AboutViewControllerDelegate> {
 @property (nonatomic, retain) NSMutableDictionary *postViewDict;
 
 - (IBAction)sectionDidClick:(id)sender;
+- (IBAction)refreshDidClick:(id)sender;
 
 @end

@@ -539,8 +539,13 @@
 															 delegate:self
 													cancelButtonTitle:@"Cancel"
 												destructiveButtonTitle:nil
-													otherButtonTitles:@"News", @"Blogs", @"Refresh", @"About", nil] autorelease];
+													otherButtonTitles:@"News", @"Blogs", @"About", nil] autorelease];
 	[actionSheet showFromRect:self.viewButtonSection.frame inView:self.view animated:YES];
+}
+
+- (IBAction)refreshDidClick:(id)sender {
+    // Reload feeds
+    [self startDownloading];
 }
 
 #pragma mark -
@@ -580,11 +585,7 @@
 			// Update scroll view. Lengthy proccess, so perform after closing the action sheet.
 			[self performSelector:@selector(newsShowWithFeed:) withObject:feedActive afterDelay:0.0];
 			break;
-        case 2:
-            // Reload feeds
-            [self startDownloading];
-            break;
-		case 3:
+		case 2:
 			// About view controller.
 			self.aboutViewController = [[AboutViewController alloc] initWithNibName:@"AboutViewController-iPad" bundle:nil];
 			self.aboutViewController.modalPresentationStyle = UIModalPresentationFormSheet;

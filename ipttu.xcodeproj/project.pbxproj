@@ -76,6 +76,7 @@
 		F7D7FA581259560100D58A28 /* icon-forward.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D7FA561259560100D58A28 /* icon-forward.png */; };
 		F7D7FAE01259E95D00D58A28 /* SearchNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D7FADE1259E95D00D58A28 /* SearchNavController.m */; };
 		F7D7FAE11259E95D00D58A28 /* SearchNavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D7FADF1259E95D00D58A28 /* SearchNavController.xib */; };
+		F7D8ED5613311B5A0051EC13 /* icon-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D8ED5513311B5A0051EC13 /* icon-refresh.png */; };
 		F7E38BB0131E7D2800211273 /* iPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E38BAE131E7D2800211273 /* iPhoneViewController.m */; };
 		F7E38BB1131E7D2800211273 /* iPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7E38BAF131E7D2800211273 /* iPhoneViewController.xib */; };
 		F7E38BF3131E81BA00211273 /* PTTUFeedDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E38BF2131E81BA00211273 /* PTTUFeedDownloader.m */; };
@@ -188,6 +189,7 @@
 		F7D7FADD1259E95D00D58A28 /* SearchNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchNavController.h; sourceTree = "<group>"; };
 		F7D7FADE1259E95D00D58A28 /* SearchNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchNavController.m; sourceTree = "<group>"; };
 		F7D7FADF1259E95D00D58A28 /* SearchNavController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchNavController.xib; path = Classes/SearchNavController.xib; sourceTree = "<group>"; };
+		F7D8ED5513311B5A0051EC13 /* icon-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-refresh.png"; sourceTree = "<group>"; };
 		F7E38BAD131E7D2800211273 /* iPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneViewController.h; sourceTree = "<group>"; };
 		F7E38BAE131E7D2800211273 /* iPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneViewController.m; sourceTree = "<group>"; };
 		F7E38BAF131E7D2800211273 /* iPhoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = iPhoneViewController.xib; path = Classes/iPhoneViewController.xib; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 		F7E38C53131E874A00211273 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				F7D8ED5513311B5A0051EC13 /* icon-refresh.png */,
 				F731B3C913290CFE00CD3C7C /* icon-white-down.png */,
 				F7E38CA5131E927800211273 /* icon-black-back.png */,
 				F7E38CA6131E927800211273 /* icon-black-down.png */,
@@ -591,6 +594,7 @@
 				F78F683F132A2D5300679CE2 /* Default-Portrait~ipad.png in Resources */,
 				F717A550132D4D8400F7FCFD /* Icon-72.png in Resources */,
 				75F26F13132FC47500FF6A6C /* iTunesArtwork in Resources */,
+				F7D8ED5613311B5A0051EC13 /* icon-refresh.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
