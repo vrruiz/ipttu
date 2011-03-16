@@ -77,7 +77,12 @@
 		// Entities converter
 		EntitiesConverter *converter = [[EntitiesConverter alloc] init];
 		NSString *title = [converter convertEntiesInString:currentTitle];
-		NSString *summary = [converter convertEntiesInString:currentSummary];
+        NSString *summary = [converter convertEntiesInString:currentSummary];
+        NSString *creator = [converter convertEntiesInString:currentCreator];
+        
+        if ([summary hasPrefix:creator]) {
+            summary = [summary substringFromIndex:[creator length]+2];
+        }
 		
 		// Date conversion
 		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
