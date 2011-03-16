@@ -32,6 +32,7 @@ NewsViewDelegate, UIActionSheetDelegate, AboutViewControllerDelegate> {
 	PTTUFeedDownloader *posts;
 	PTTUFeedDownloader *feedActive;
 	NSMutableDictionary *postViewDict;
+    NSInteger finishedDownloadsCount;
 }
 
 @property (nonatomic, retain) IBOutlet UIView *scrollSuperview;
